@@ -1,0 +1,137 @@
+---
+// src/components/Timeline.astro
+
+import TimelineLabel from "@/components/TimelineLabel.astro"
+
+type Period = { name: string; pct: number; mya: number }
+
+const PERIODS: Period[] = [
+  { name: "Cambrian", pct: 2, mya: 541 },
+  { name: "Ordovician", pct: 6, mya: 485 },
+  { name: "Silurian", pct: 9, mya: 444 },
+  { name: "Devonian", pct: 14, mya: 419 },
+  { name: "Carboniferous", pct: 18, mya: 359 },
+  { name: "Permian", pct: 22, mya: 299 },
+  { name: "Triassic", pct: 30, mya: 252 },
+  { name: "Jurassic", pct: 38, mya: 201 },
+  { name: "Cretaceous", pct: 46, mya: 145 },
+  { name: "Paleogene", pct: 62, mya: 66 },
+  { name: "Neogene", pct: 72, mya: 23 },
+  { name: "Quaternary", pct: 90, mya: 2.6 },
+]
+
+interface Props {
+  /** e.g., "Silurian" */
+  current?: string
+  accent?: string
+}
+
+// teal-500
+const { current, accent = "rgb(20 184 166)" } = Astro.props
+
+const curIdx = PERIODS.findIndex((p) => p.name === current)
+const curPct = curIdx >= 0 ? PERIODS[curIdx].pct : 65
+const curPeriod = curIdx >= 0 ? PERIODS[curIdx] : undefined
+const TICK = 14 // px tall from the bar center
+
+// pre-assign lanes so labels don't collide:
+// even indices = up ticks, odd = down ticks
+let upCounter = 0
+let downCounter = 0
+const lanes = PERIODS.map((_, i) => {
+  const isUp = i % 2 === 0
+  if (isUp) {
+    const lane = upCounter % 2 // 0 topA (closer), 1 topB (higher)
+    upCounter++
+    return { isUp, lane }
+  } else {
+    const lane = downCounter % 2 // 0 bottomA (closer), 1 bottomB (lower)
+    downCounter++
+    return { isUp, lane }
+  }
+})
+
+const ticks = PERIODS.map((p, i) => {
+  const isUp = i % 2 === 0
+  // if label is farther (lane 1 or lane 3), double the tick size
+  const { lane } = lanes[i]
+  const height = lane === 1 || lane === 3 ? TICK * 2 : TICK
+  return {
+    name: p.name,
+    left: `${p.pct}%`,
+    top: isUp ? `calc(50% - ${height}px)` : "50%",
+    height: `${height}px`,
+    color: i === curIdx ? accent : "rgba(163,163,163,.7)",
+  }
+})
+
+const labels = PERIODS.map((p, i) => {
+  const { isUp, lane } = lanes[i]
+  return {
+    isUp,
+    left: p.pct,
+    top: isUp ? (lane === 0 ? -18 : -34) : lane === 0 ? 18 : 34,
+    text: `${p.name} (${p.mya} MYA)`,
+    active: i === curIdx,
+  }
+})
+---
+
+<div class="@container w-full max-w-5xl">
+  {/* space for two rows above + two below */}
+  <div class="relative pt-4 pb-4 mt-2 @[60rem]:mt-10">
+    {/* base bar */}
+    <div class="relative h-1.5 w-full rounded-full bg-gradient-to-r from-neutral-200 to-neutral-400">
+      {/* alternating ticks (even up, odd down) */}
+      {
+        ticks.map((tick) => (
+          <div
+            class="absolute w-[2px]"
+            style={`left:${tick.left};top:${tick.top};height:${tick.height};transform:translateX(-50%);background-color:${tick.color}`}
+          />
+        ))
+      }
+
+      {/* marker pinned at the BAR CENTER (base of tick) — the -8px centres the
+          16px dot on the bar */}
+      <div
+        class="absolute z-10 rounded-full border-2 border-white shadow-sm"
+        style={`left:calc(${curPct}% - 8px);top:calc(50% - 8px);width:16px;height:16px;background-color:${accent};transition:left 500ms cubic-bezier(.2,0,.2,1)`}
+        aria-label={`Geologic period: ${current ?? "Unknown"}`}
+        role="img"
+      >
+      </div>
+    </div>
+
+    {/* labels ABOVE (only for up-ticks) */}
+    <div class="pointer-events-none absolute left-0 right-0 -top-2 @max-[60rem]:hidden">
+      {
+        labels
+          .filter((l) => l.isUp)
+          .map((l) => <TimelineLabel left={l.left} top={l.top} text={l.text} active={l.active} />)
+      }
+    </div>
+
+    {/* labels BELOW (only for down-ticks) */}
+    <div class="pointer-events-none absolute left-0 right-0 top-4 @max-[60rem]:hidden">
+      {
+        labels
+          .filter((l) => !l.isUp)
+          .map((l) => <TimelineLabel left={l.left} top={l.top} text={l.text} active={l.active} />)
+      }
+    </div>
+  </div>
+
+  {/* Twelve staggered labels need ~60rem, so a narrower bar gets a caption */}
+  <div class="@[60rem]:hidden mt-3 flex items-baseline justify-between gap-3 text-[11px] text-neutral-400">
+    <span>{PERIODS[0].mya} MYA</span>
+    {
+      curPeriod && (
+        <span class="text-sm font-semibold text-neutral-900">
+          {curPeriod.name} <span class="font-normal text-neutral-500">· {curPeriod.mya} MYA</span>
+        </span>
+      )
+    }
+    <span>Today</span>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+// data/animals/edestus.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Late Carboniferous",    "icon": "layers" },
+    { "key": "Diet Type",     "value": "Carnivore (piscivore)", "icon": "drumstick" },
+    { "key": "Means",         "value": "\"glutton\"",             "icon": "quote" },
+    { "key": "Pronunciation", "value": "eh-DES-tuss jai-GAN-tee-us", "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "25%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Large fish, soft-bodied prey, possible cephalopods", "icon": "drumstick" },
+    { "label": "Size",     "value": "23 ft long × ~4 ft tall (body depth)",               "icon": "ruler" },
+    { "label": "Location", "value": "North America & UK (Carboniferous seas)",            "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Forward-projecting ‘scissor’ tooth blades that grew outward as new teeth formed.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Related to Helicoprion, but with straight tooth blades instead of a spiral whorl.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",        "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",        "icon": "folder-tree" },
+    { "label": "Class",   "value": "Chondrichthyes",  "icon": "school" },
+    { "label": "Order",   "value": "Eugeneodontida",  "icon": "list-tree" },
+    { "label": "Family",  "value": "Edestidae",       "icon": "users" },
+    { "label": "Genus",   "value": "Edestus",         "icon": "dna" },
+    { "label": "Species", "value": "E. giganteus",    "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Late Carboniferous"
+}

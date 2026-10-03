@@ -1,0 +1,43 @@
+// data/animals/saber-toothed-cat.jsonc
+{
+  "metadata": [
+    { "key": "Era",          "value": "Pleistocene (2.5 Ma–10 ka)",             "icon": "layers" },
+    { "key": "Diet Type",    "value": "Carnivore",                               "icon": "drumstick" },
+    { "key": "Means",        "value": "\"knife tooth\"",                           "icon": "quote" },
+    { "key": "Pronunciation","value": "SMY-luh-don fuh-TAY-liss",                "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "55%", "icon": "target" }
+  ],
+
+"quickFacts": [
+  { "label": "Eats",     "value": "Bison, camels, horses, young mammoths", "icon": "drumstick" },
+  { "label": "Size",     "value": "6 ft long × 3 ft tall",               "icon": "ruler" },
+  { "label": "Location", "value": "North & South America (La Brea)",       "icon": "map-pin" }
+],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Specialized sabers paired with extreme neck/forelimb power for short, explosive takedowns.", "icon": "zap" },
+    { "name": "Fun Fact", "description": "A true cat (Felidae) in an extinct subfamily (Machairodontinae), separate from modern big cats.", "icon": "sparkle" },
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia", "icon": "crown" },
+    { "label": "Phylum", "value": "Chordata", "icon": "folder-tree" },
+    { "label": "Class", "value": "Mammalia", "icon": "school" },
+    { "label": "Order", "value": "Carnivora", "icon": "list-tree" },
+    { "label": "Family", "value": "Felidae", "icon": "users" },
+    { "label": "Genus", "value": "Smilodon", "icon": "dna" },
+    { "label": "Species", "value": "S. fatalis", "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Quaternary"
+}

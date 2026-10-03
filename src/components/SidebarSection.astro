@@ -1,0 +1,39 @@
+---
+// src/components/SidebarSection.astro
+//
+// One titled panel in the animal sidebar — Metadata, Details, Classification.
+//
+// Was `Section` inside AnimalSidebar.tsx, built out of the shadcn `Card`,
+// `CardHeader` and `CardContent` wrappers. Phase 5 inlines those: they were
+// three `React.forwardRef` divs whose only job was to prepend a class list, and
+// the deck never took a ref to any of them. The classes below are what
+// `cn(...)` actually resolved to, minus the shadcn theme tokens (`bg-card`,
+// `text-card-foreground`) — Tailwind emits no rule for either, since this
+// project never defined those design tokens.
+
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<div
+  class="mb-4 rounded-2xl border border-neutral-200/90 shadow-sm transition
+         hover:border-neutral-300
+         hover:[box-shadow:0_1px_0_0_rgba(0,0,0,0.04),inset_0_-3px_0_0_var(--accent)]"
+  style="background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.95))"
+>
+  <div class="flex flex-col space-y-1.5 p-6 py-3">
+    <div class="flex items-center gap-2">
+      <span
+        class="inline-block h-1.5 w-1.5 rounded-full"
+        style="background-color:var(--accent)"
+        aria-hidden="true"></span>
+      <div class="text-[11px] uppercase tracking-[0.14em] text-neutral-500 font-semibold">
+        {title}
+      </div>
+    </div>
+  </div>
+  <div class="p-6 pt-0 pb-4"><slot /></div>
+</div>

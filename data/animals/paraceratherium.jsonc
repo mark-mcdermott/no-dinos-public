@@ -1,0 +1,42 @@
+// data/animals/paraceratherium.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Oligocene (~34–23 Ma)",                         "icon": "layers" },
+    { "key": "Diet Type",      "value": "Herbivore (browser)",                           "icon": "drumstick" },
+    { "key": "Means",          "value": "\"near-horn beast\" (para + keras 'horn' + therion 'beast')", "icon": "quote" },
+    { "key": "Pronunciation",  "value": "para-seh-rah-THEER-ee-um",                      "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "59%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Leaves, soft shoots from tall trees",               "icon": "drumstick" },
+    { "label": "Size",     "value": "Shoulder ≈15–16 ft (4.5–4.8 m); 15–20 t",           "icon": "ruler" },
+    { "label": "Location", "value": "Central & South Asia (Pakistan, Mongolia, China)",  "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Largest known land mammal—long legs/neck to browse above canopy height; hornless rhinoceros relative.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Sometimes called Indricotherium; several species are debated as one giant lineage.",                     "icon": "sparkles" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",         "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",         "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",         "icon": "school" },
+    { "label": "Order",   "value": "Perissodactyla",   "icon": "list-tree" },
+    { "label": "Family",  "value": "Hyracodontidae",   "icon": "users" },
+    { "label": "Genus",   "value": "Paraceratherium",  "icon": "dna" },
+    { "label": "Species", "value": "P. transouralicum", "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Oligocene"
+}

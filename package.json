@@ -1,0 +1,49 @@
+{
+  "name": "ancient-extinct-animals-slideshow",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "art": "node scripts/fetch-art.mjs",
+    "dev": "node scripts/fetch-art.mjs && astro dev",
+    "build": "node scripts/fetch-art.mjs && astro check && astro build && node scripts/prune-unused-images.mjs",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "eslint",
+    "test": "playwright test",
+    "test:controls": "playwright test --project=controls",
+    "test:visual": "playwright test --project=visual",
+    "test:visual:sample": "VISUAL_SLIDES=sample playwright test --project=visual"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4",
+    "astro": "^5",
+    "clsx": "^2.1.1",
+    "jsonc-parser": "^3.3.1",
+    "lucide-react": "^0.544.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "sharp": "^0.34.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.62.1",
+    "@tailwindcss/vite": "4.1.13",
+    "@types/node": "^20",
+    "@types/pixelmatch": "^5.2.6",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-plugin-astro": "^3.2.0",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "tailwindcss": "4.1.13",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5",
+    "typescript-eslint": "^8.70.0",
+    "vite": "^6"
+  },
+  "packageManager": "pnpm@12.3.4"
+}

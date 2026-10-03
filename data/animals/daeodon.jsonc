@@ -1,0 +1,43 @@
+// data/animals/daeodon.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Late Oligocene–Early Miocene",           "icon": "layers" },
+    { "key": "Diet Type",     "value": "Omnivore (scavenger/carrion capable)",    "icon": "drumstick" },
+    { "key": "Means",         "value": "\"dreadful tooth\"",                        "icon": "quote" },
+    { "key": "Pronunciation", "value": "DAY-oh-don show-shoh-NEN-sis",            "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "28%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Carrion, small vertebrates, roots, tough plants", "icon": "drumstick" },
+    { "label": "Size",     "value": "10 ft long × 6 ft tall (shoulder)",               "icon": "ruler" },
+    { "label": "Location", "value": "North America (Great Plains & West)",             "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Largest known entelodont with bone-crushing jaws and flaring cheek bones.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Not a true pig—entelodonts are distant artiodactyl relatives closer to hippos/whales than suids.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",        "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",        "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",        "icon": "school" },
+    { "label": "Order",   "value": "Artiodactyla",    "icon": "list-tree" },
+    { "label": "Family",  "value": "Entelodontidae",  "icon": "users" },
+    { "label": "Genus",   "value": "Daeodon",         "icon": "dna" },
+    { "label": "Species", "value": "D. shoshonensis", "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Oligocene–Miocene"
+}

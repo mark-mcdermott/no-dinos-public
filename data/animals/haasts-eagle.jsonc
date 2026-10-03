@@ -1,0 +1,42 @@
+// data/animals/haasts-eagle.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Late Pleistocene–Holocene (extinct ~1400 CE)",            "icon": "layers" },
+    { "key": "Diet Type",      "value": "Carnivore (apex raptor)",                                 "icon": "drumstick" },
+    { "key": "Means",          "value": "Named for Julius von Haast (discoverer)",                 "icon": "quote" },
+    { "key": "Pronunciation",  "value": "HAHSTS EE-guhl (also \"hasts\" eagle)",                      "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "64%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Moa (giant flightless birds); carrion",                        "icon": "drumstick" },
+    { "label": "Size",     "value": "Wingspan ≈8.5–10 ft (2.6–3.0 m); up to ~15 kg (♀)",           "icon": "ruler" },
+    { "label": "Location", "value": "South Island, New Zealand (Te Waipounamu)",                    "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Largest eagle known—short, powerful wings and long tail for maneuvering in forest; capable of subduing prey larger than itself.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Disappeared soon after human arrival in New Zealand, largely due to extinction of its primary prey, the moa.",                  "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",            "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",            "icon": "folder-tree" },
+    { "label": "Class",   "value": "Aves",                "icon": "school" },
+    { "label": "Order",   "value": "Accipitriformes",     "icon": "list-tree" },
+    { "label": "Family",  "value": "Accipitridae",        "icon": "users" },
+    { "label": "Genus",   "value": "Hieraaetus (formerly Harpagornis)", "icon": "dna" },
+    { "label": "Species", "value": "H. moorei",           "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Quaternary"
+}

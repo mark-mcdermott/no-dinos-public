@@ -1,0 +1,42 @@
+// data/animals/tarpan.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Holocene (extinct ~1900 CE)",          "icon": "layers" },
+    { "key": "Diet Type",      "value": "Herbivore (grazer)",                   "icon": "drumstick" },
+    { "key": "Means",          "value": "\"Tarpan\" from Turkic for 'wild/untamed' horse", "icon": "quote" },
+    { "key": "Pronunciation",  "value": "TAR-pan",                              "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "45%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Steppe grasses and browse",                "icon": "drumstick" },
+    { "label": "Size",     "value": "Height ≈12–13.5 hh (48–54 in / 122–137 cm)", "icon": "ruler" },
+    { "label": "Location", "value": "Eastern Europe & steppe of Russia/Ukraine", "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Extinct wild horse form—dun coat, dark dorsal stripe; ancestor/relative of some primitive breeds.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Modern ‘Heck horses’ imitate tarpan look but are domestic-breed recreations, not descendants.",     "icon": "sparkles" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",        "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",        "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",        "icon": "school" },
+    { "label": "Order",   "value": "Perissodactyla",  "icon": "list-tree" },
+    { "label": "Family",  "value": "Equidae",         "icon": "users" },
+    { "label": "Genus",   "value": "Equus",           "icon": "dna" },
+    { "label": "Species", "value": "E. ferus ferus",  "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Holocene"
+}

@@ -1,0 +1,29 @@
+---
+// src/components/TimelineLabel.astro
+//
+// One period chip on the geologic timeline. Was `LabelChip`, a second function
+// inside Timeline.tsx; an .astro file holds one component, so it becomes its
+// own file rather than being written out twice in Timeline's two label rows.
+
+interface Props {
+  /** Horizontal position along the bar, as a percentage. */
+  left: number
+  /** Vertical offset from the row's origin, in px. Negative sits above. */
+  top: number
+  text: string
+  active: boolean
+}
+
+const { left, top, text, active } = Astro.props
+---
+
+<div class="absolute -translate-x-1/2 select-none" style={`left:${left}%;top:${top}px`}>
+  <span
+    class={
+      "whitespace-nowrap px-1.5 rounded backdrop-blur-[2px] " +
+      (active
+        ? "text-sm bg-white/50 text-neutral-900 font-semibold py-1.5"
+        : "text-xs bg-white/30 text-neutral-400 py-0.5")
+    }>{text}</span
+  >
+</div>

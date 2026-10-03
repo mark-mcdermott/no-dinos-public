@@ -1,0 +1,42 @@
+// data/animals/pelagornis.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Oligocene–Miocene (~28–10 Ma)", "icon": "layers" },
+    { "key": "Diet Type",     "value": "Piscivore",                     "icon": "drumstick" },
+    { "key": "Means",         "value": "\"sea bird\" (Gk. pelagos + ornis)", "icon": "quote" },
+    { "key": "Pronunciation", "value": "peh-LA-gor-niss san-DER-see",   "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "0%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Fish and squid skimmed from the ocean surface", "icon": "drumstick" },
+    { "label": "Size",     "value": "Wingspan ≈20–24 ft (6.1–7.4 m)",                "icon": "ruler" },
+    { "label": "Location", "value": "Coastal oceans; fossils in S. Carolina (USA), Europe, Chile", "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Gigantic gliding seabird with bony “pseudo-teeth” along the beak for gripping slippery prey.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Those “teeth” aren’t real teeth—just bony outgrowths of the beak. Likely soared like an albatross, using wind over the sea.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",           "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",           "icon": "folder-tree" },
+    { "label": "Class",   "value": "Aves",               "icon": "school" },
+    { "label": "Order",   "value": "Odontopterygiformes","icon": "list-tree" },
+    { "label": "Family",  "value": "Pelagornithidae",    "icon": "users" },
+    { "label": "Genus",   "value": "Pelagornis",         "icon": "dna" },
+    { "label": "Species", "value": "P. sandersi",        "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Neogene"
+}

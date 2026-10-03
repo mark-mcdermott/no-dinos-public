@@ -1,0 +1,42 @@
+// data/animals/phoberomys-pattersoni.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Late Miocene (~9–8 Ma)",                    "icon": "layers" },
+    { "key": "Diet Type",      "value": "Herbivore (grazer/browser)",                "icon": "drumstick" },
+    { "key": "Means",          "value": "\"terrifying mouse\" (phobos 'fear' + mys 'mouse')", "icon": "quote" },
+    { "key": "Pronunciation",  "value": "foh-beh-ROH-meez PAT-er-soh-nee",           "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "48%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Aquatic/riverbank plants, grasses",             "icon": "drumstick" },
+    { "label": "Size",     "value": "Length ≈10 ft (3 m) + tail; ~400–700 kg",       "icon": "ruler" },
+    { "label": "Location", "value": "Urumaco Formation, Venezuela (N South America)", "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "One of the largest rodents ever—semi-aquatic lifestyle inferred from bones and setting.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "A close giant rival is Josephoartigasia; both are caviomorph rodents with massive incisors.", "icon": "sparkles" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",          "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",          "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",          "icon": "school" },
+    { "label": "Order",   "value": "Rodentia",          "icon": "list-tree" },
+    { "label": "Family",  "value": "Neoepiblemidae",    "icon": "users" },
+    { "label": "Genus",   "value": "Phoberomys",        "icon": "dna" },
+    { "label": "Species", "value": "P. pattersoni",     "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Miocene"
+}

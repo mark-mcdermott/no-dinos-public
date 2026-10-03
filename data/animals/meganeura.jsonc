@@ -1,0 +1,42 @@
+// data/animals/meganeura.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Late Carboniferous (~305 Ma)",        "icon": "layers" },
+    { "key": "Diet Type",      "value": "Carnivore (aerial insect predator)",  "icon": "drumstick" },
+    { "key": "Means",          "value": "\"large veins\" (mega + neura, wing veins)", "icon": "quote" },
+    { "key": "Pronunciation",  "value": "MEG-uh-NOO-rah MON-yee",              "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "20%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Flying insects; possibly small amphibians", "icon": "drumstick" },
+    { "label": "Size",     "value": "Wingspan ≈65–75 cm (26–30 in)",             "icon": "ruler" },
+    { "label": "Location", "value": "Europe (France) and related taxa elsewhere", "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Giant ‘griffinfly’—not a modern dragonfly, but a prehistoric relative with enormous wings.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Grew so large partly thanks to higher atmospheric oxygen in the Carboniferous.",             "icon": "sparkles" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",        "icon": "crown" },
+    { "label": "Phylum",  "value": "Arthropoda",      "icon": "folder-tree" },
+    { "label": "Class",   "value": "Insecta",         "icon": "school" },
+    { "label": "Order",   "value": "†Odonatoptera (Protodonata)", "icon": "list-tree" },
+    { "label": "Family",  "value": "Meganeuridae",    "icon": "users" },
+    { "label": "Genus",   "value": "Meganeura",       "icon": "dna" },
+    { "label": "Species", "value": "M. monyi",        "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Carboniferous"
+}

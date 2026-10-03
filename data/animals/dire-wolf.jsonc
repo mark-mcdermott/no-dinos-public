@@ -1,0 +1,43 @@
+// data/animals/dire-wolf.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Pleistocene–early Holocene", "icon": "layers" },
+    { "key": "Diet Type",     "value": "Carnivore",                  "icon": "drumstick" },
+    { "key": "Means",         "value": "\"terrible wolf\"",            "icon": "quote" },
+    { "key": "Pronunciation", "value": "EE-no-SY-on DIE-russ",       "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "62%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Bison, horses, camels; large herbivores", "icon": "drumstick" },
+    { "label": "Size",     "value": "5 ft long × ~2.6 ft tall (shoulder)",     "icon": "ruler" },
+    { "label": "Location", "value": "North & South America (La Brea, etc.)",   "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "More robust skull and bite than gray wolves; adapted to megafauna hunting/scavenging.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Thousands of skeletons recovered from La Brea Tar Pits.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",   "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",   "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",   "icon": "school" },
+    { "label": "Order",   "value": "Carnivora",  "icon": "list-tree" },
+    { "label": "Family",  "value": "Canidae",    "icon": "users" },
+    { "label": "Genus",   "value": "Aenocyon",   "icon": "dna" },
+    { "label": "Species", "value": "A. dirus",   "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Pleistocene"
+}

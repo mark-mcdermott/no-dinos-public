@@ -1,0 +1,115 @@
+---
+// src/components/DeckSlide.astro
+//
+// One fully-composed deck state: an animal in data view, an animal in
+// fullscreen, or a title slide. This is the part of the old Deck.tsx that
+// decided what a single slide looks like, split away from the part that decided
+// *which* slide to show.
+//
+// The split is the whole point of phase 4. Deck.tsx kept the slide list in
+// React state and rendered `initialSlides[i]` — one slide in the DOM at a time,
+// with the rest reachable only by re-rendering. Now src/pages/index.astro calls
+// this once per state at build time and puts all 64 results in the page, so
+// navigation is a visibility toggle rather than a render.
+//
+// Nothing here is interactive and nothing hydrates: the props resolve at build
+// time and the output is static HTML. Phase 5 made that literal — this and
+// everything it composes are .astro templates now, and React is left to the one
+// island (plus Icon, which only borrows lucide's SVGs at build time).
+
+import type { AnimalData, SlideImageSource, TitleData } from "@/lib/types"
+import type { ViewMode } from "@/lib/cookies"
+import AnimalSidebar from "@/components/AnimalSidebar.astro"
+import AnimalSlide from "@/components/AnimalSlide.astro"
+import TitleSlide from "@/components/TitleSlide.astro"
+import DeckDock from "@/components/DeckDock.astro"
+import CoverCredit from "@/components/CoverCredit.astro"
+
+/** "title-02-biggest-evers" → "Biggest Evers"; "dire-wolf" → "Dire Wolf". */
+function toTitle(slug: string) {
+  return slug.replace(/\d+-/g, "").replace(/-/g, " ").replace(/\b\w/g, (m) => m.toUpperCase())
+}
+
+interface Props {
+  index: number
+  total: number
+  slug: string
+  kind: "animal" | "title"
+  /**
+   * The view mode this state renders. Title slides look identical in both, so
+   * they are built once with "dataview" and the island relabels them if the
+   * reader is in fullscreen.
+   */
+  mode: ViewMode
+  image: SlideImageSource
+  animal?: AnimalData
+  titleData?: TitleData
+  /** Load this state's image eagerly. Only the first slide does. */
+  priority?: boolean
+}
+
+const {
+  index,
+  total,
+  slug,
+  kind,
+  mode,
+  image,
+  animal,
+  titleData,
+  priority = false,
+} = Astro.props
+
+const isAnimal = kind === "animal"
+const isFullscreen = mode === "fullscreen"
+const animalName = isAnimal ? animal?.name || toTitle(slug) : undefined
+const fs0 = isAnimal ? animal?.fullscreenDisplay?.[0] : undefined
+
+const layout = !isAnimal ? "title" : isFullscreen ? "animal-full" : "animal-sidebar"
+const hasSidebar = layout === "animal-sidebar"
+
+// An animal in fullscreen is a title slide over the fullscreen crop, with the
+// overlay settings the animal carries for it.
+const fullscreenTitle: TitleData = {
+  title: animalName,
+  alignY: fs0?.alignY ?? "bottom",
+  alignX: fs0?.alignX ?? "left",
+  titleSize: fs0?.titleSize,
+  stackWords: fs0?.stackWords,
+  imageFocus: fs0?.imageFocus,
+}
+---
+
+<div
+  class={hasSidebar
+    ? "relative min-h-dvh flex flex-col lg:grid lg:grid-cols-[20rem_1fr]"
+    : "relative min-h-dvh flex"}
+>
+  {
+    hasSidebar ? (
+      <AnimalSidebar
+        title={animalName!}
+        latin={animal?.metadata?.find((m) => m.key.toLowerCase().includes("species"))?.value}
+        data={animal!}
+        index={index}
+        total={total}
+        currentMode={mode}
+        showEmbeddedNav={false}
+      />
+    ) : null
+  }
+
+  <div class={hasSidebar ? "relative min-w-0" : "relative min-w-0 flex-1"}>
+    {
+      layout === "animal-full" ? (
+        <TitleSlide image={image} title={fullscreenTitle} priority={priority} />
+      ) : layout === "animal-sidebar" ? (
+        <AnimalSlide image={image} data={animal!} title={animalName} priority={priority} />
+      ) : (
+        <TitleSlide image={image} title={titleData || {}} priority={priority} />
+      )
+    }
+    {index === 0 && <CoverCredit />}
+    <DeckDock index={index} total={total} mode={mode} />
+  </div>
+</div>

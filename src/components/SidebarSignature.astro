@@ -1,0 +1,11 @@
+---
+// src/components/SidebarSignature.astro
+
+interface Props {
+  class?: string
+}
+
+const { class: className = "" } = Astro.props
+---
+
+<div class={`mt-6 text-[11px] text-neutral-500 ${className}`}><slot>Made with 🩶 by Mark McDermott</slot></div>

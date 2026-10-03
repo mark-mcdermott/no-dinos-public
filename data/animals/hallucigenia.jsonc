@@ -1,0 +1,42 @@
+// data/animals/hallucigenia.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Middle Cambrian (~508 Ma)",                      "icon": "layers" },
+    { "key": "Diet Type",      "value": "Detritivore / micro-predator",                  "icon": "drumstick" },
+    { "key": "Means",          "value": "\"like a hallucination\"",                        "icon": "quote" },
+    { "key": "Pronunciation",  "value": "ha-LOO-si-JEE-nee-uh SPAR-suh",                 "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "40%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Microorganisms, organic detritus on seafloor",      "icon": "drumstick" },
+    { "label": "Size",     "value": "Length ≈1–5 cm",                                    "icon": "ruler" },
+    { "label": "Location", "value": "Burgess Shale (Canada); related forms in China",    "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Spiky lobopodian with paired spines and soft legs—famously ‘upside down’ in early reconstructions.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Modern studies flipped it right-side up and found a throat lined with tiny teeth for gripping food.", "icon": "sparkles" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",        "icon": "crown" },
+    { "label": "Phylum",  "value": "†Lobopodia",      "icon": "folder-tree" },
+    { "label": "Class",   "value": "†Xenusia",        "icon": "school" },
+    { "label": "Order",   "value": "†Hallucigeniida", "icon": "list-tree" },
+    { "label": "Family",  "value": "Hallucigeniidae", "icon": "users" },
+    { "label": "Genus",   "value": "Hallucigenia",    "icon": "dna" },
+    { "label": "Species", "value": "H. sparsa",       "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Cambrian"
+}

@@ -1,0 +1,43 @@
+// data/animals/deinosuchus.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Late Cretaceous (Campanian)", "icon": "layers" },
+    { "key": "Diet Type",     "value": "Carnivore (ambush predator)", "icon": "drumstick" },
+    { "key": "Means",         "value": "\"terrible crocodile\"",        "icon": "quote" },
+    { "key": "Pronunciation", "value": "DIE-no-SOO-kuss ree-oh-gran-DEN-sis", "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "57%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Hadrosaurs near water, turtles, large fish", "icon": "drumstick" },
+    { "label": "Size",     "value": "33 ft long × ~6 ft tall (back)",             "icon": "ruler" },
+    { "label": "Location", "value": "North America (Laramidia & Appalachia)",     "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Among the largest crocodyliforms, with robust, crushing teeth.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Bite marks on dinosaur bones show it preyed on or scavenged dinosaurs at shorelines.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",        "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",        "icon": "folder-tree" },
+    { "label": "Class",   "value": "Reptilia",        "icon": "school" },
+    { "label": "Order",   "value": "Crocodyliformes", "icon": "list-tree" },
+    { "label": "Superfamily", "value": "Alligatoroidea", "icon": "users" },
+    { "label": "Genus",   "value": "Deinosuchus",     "icon": "dna" },
+    { "label": "Species", "value": "D. riograndensis","icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Late Cretaceous"
+}

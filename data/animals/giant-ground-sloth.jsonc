@@ -1,0 +1,43 @@
+// data/animals/giant-ground-sloth.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Pleistocene (esp. Late Pleistocene)", "icon": "layers" },
+    { "key": "Diet Type",     "value": "Herbivore",                           "icon": "drumstick" },
+    { "key": "Means",         "value": "\"great beast\"",                     "icon": "quote" },
+    { "key": "Pronunciation", "value": "meg-uh-THEER-ee-um uh-MER-ih-KAH-num","icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "35%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Leaves, branches, fruits; high browsing", "icon": "leaf" },
+    { "label": "Size",     "value": "20 ft long × 10 ft tall (reared)",        "icon": "ruler" },
+    { "label": "Location", "value": "South America (esp. Argentina, Brazil)",  "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Massive ground sloth capable of tripod stance using the tail to reach high foliage.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Close relatives include smaller tree sloths and anteaters (order Pilosa).", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",       "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",       "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",       "icon": "school" },
+    { "label": "Order",   "value": "Pilosa",         "icon": "list-tree" },
+    { "label": "Family",  "value": "Megatheriidae",  "icon": "users" },
+    { "label": "Genus",   "value": "Megatherium",    "icon": "dna" },
+    { "label": "Species", "value": "M. americanum",  "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Pleistocene"
+}

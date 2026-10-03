@@ -1,0 +1,169 @@
+---
+// src/components/AnimalSidebar.astro
+//
+// The data-view sidebar: header, three panels of animal data, and — when asked
+// for — the nav and signature at the bottom.
+//
+// Phase 5 turned this from React into Astro and dissolved the three shadcn
+// wrappers it used. `Card`/`CardHeader`/`CardContent` moved into
+// SidebarSection.astro, and `Badge` and `Separator` are written out inline
+// below; all three were class-list wrappers with no behaviour, and `Separator`
+// additionally pulled in @radix-ui/react-separator for a decorative 1px div.
+//
+// `Icon` stays React on purpose — see the note at its call sites.
+
+import type { AnimalData } from "@/lib/types"
+import type { ViewMode } from "@/lib/cookies"
+import { Icon } from "@/components/Icon"
+import SidebarSection from "@/components/SidebarSection.astro"
+import SidebarNav from "@/components/SidebarNav.astro"
+import SidebarSignature from "@/components/SidebarSignature.astro"
+
+interface Props {
+  title: string
+  latin?: string
+  data: AnimalData
+  accent?: string
+  index: number
+  total: number
+  currentMode?: ViewMode
+  showEmbeddedNav?: boolean
+}
+
+const {
+  title,
+  latin,
+  data,
+  accent = "rgb(20 184 166)",
+  index,
+  total,
+  currentMode,
+  showEmbeddedNav = true, // default true
+} = Astro.props
+
+// The dotted paper surface, plus the accent exposed to CSS as a custom prop.
+const surfaceStyle = [
+  "background-image:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0)), radial-gradient(circle at 1px 1px, #f2f2f2 1px, transparent 1.2px)",
+  "background-size:100% 100%, 18px 18px",
+  "background-blend-mode:multiply",
+  `--accent:${accent}`,
+].join(";")
+
+// What shadcn's `Badge` resolved to once `cn()` had merged the caller's
+// classes over the "secondary" variant. The variant's own colours
+// (`bg-secondary`, `text-secondary-foreground`) are dropped: those theme
+// tokens were never defined, so Tailwind emitted no rule for them. So were the
+// `focus:` ring utilities — a chip is a div, and nothing focuses it.
+const BADGE_CLASS =
+  "group flex items-center gap-1 rounded-lg px-2.5 py-1 text-[12px] font-medium " +
+  "border border-neutral-200 transition-colors shadow-sm " +
+  "hover:border-[--accent] hover:shadow-md"
+---
+
+<aside
+  class="order-last lg:order-none w-full lg:w-80 shrink-0 px-4 sm:px-6 pt-8 pb-28 lg:pb-8 bg-white border-t lg:border-t-0 lg:border-r border-neutral-200 shadow-sm relative flex flex-col lg:min-h-screen"
+  style={surfaceStyle}
+>
+  {/* Header */}
+  <header class="mb-2">
+    <div class="flex items-center gap-2">
+      <div
+        class="h-6 w-6 rounded-md shadow-sm ring-1 ring-black/5"
+        style="background-color:var(--accent)"
+      >
+      </div>
+      <h1 class="text-[22px] leading-6 font-extrabold tracking-tight text-neutral-900">
+        {title}
+      </h1>
+    </div>
+    {latin ? <p class="mt-1 text-[13px] text-neutral-500 italic">{latin}</p> : null}
+  </header>
+
+  {/* Separator — decorative, and invisible: `bg-border` was never defined. */}
+  <div role="none" class="shrink-0 h-[1px] w-full my-4"></div>
+
+  {/* Metadata */}
+  {
+    data.metadata?.length ? (
+      <SidebarSection title="Metadata">
+        <ul class="space-y-2">
+          {data.metadata.map((m) => (
+            <li class="flex items-start gap-2 group">
+              {m.icon && (
+                <Icon
+                  name={m.icon}
+                  className="h-4 w-4 mt-0.5 text-neutral-400 transition-colors group-hover:text-[var(--accent)]"
+                />
+              )}
+              <div class="flex-1">
+                <div class="text-[13px] text-neutral-900/90 font-medium transition-colors group-hover:text-[var(--accent)]">
+                  {m.key}
+                </div>
+                <div class="text-[13px] text-neutral-500">{m.value}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </SidebarSection>
+    ) : null
+  }
+
+  {/* Details */}
+  {
+    data.details?.length ? (
+      <SidebarSection title="Details">
+        <ul class="space-y-2">
+          {data.details.map((row) => (
+            <li class="flex items-start gap-2 group">
+              {row.icon && (
+                <Icon
+                  name={row.icon}
+                  className="mt-[2px] h-3.5 w-3.5 shrink-0 text-neutral-500 transition-colors group-hover:text-[var(--accent)]"
+                />
+              )}
+              <div>
+                <div class="text-[11px] uppercase tracking-widest text-neutral-500 transition-colors group-hover:text-[var(--accent)]">
+                  {row.name}
+                </div>
+                <div class="text-sm font-medium text-neutral-800">{row.description}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </SidebarSection>
+    ) : null
+  }
+
+  {/* Classification */}
+  {
+    data.classification?.length ? (
+      <SidebarSection title="Classification">
+        <div class="grid grid-cols-2 gap-x-3 gap-y-2 -ml-1">
+          {data.classification.map((c) => (
+            <div class={BADGE_CLASS}>
+              {c.icon && (
+                <Icon
+                  name={c.icon}
+                  className="h-3.5 w-3.5 text-neutral-500 transition-colors group-hover:text-[var(--accent)]"
+                />
+              )}
+              <span class="transition-colors group-hover:text-[var(--accent)]">{c.value}</span>
+            </div>
+          ))}
+        </div>
+      </SidebarSection>
+    ) : null
+  }
+
+  {/* Optional embedded nav */}
+  <div class="mt-auto pt-6">
+    {
+      showEmbeddedNav && (
+        <>
+          <SidebarNav index={index} total={total} currentMode={currentMode} />
+          <SidebarSignature />
+        </>
+      )
+    }
+  </div>
+</aside>

@@ -1,0 +1,43 @@
+// data/animals/giant-otter.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Late Miocene (~6 Ma)",     "icon": "layers" },
+    { "key": "Diet Type",     "value": "Carnivore (durophage)",    "icon": "drumstick" },
+    { "key": "Means",         "value": "\"Siamese weasel\" (genus); \"badger-otter\" (species)", "icon": "quote" },
+    { "key": "Pronunciation", "value": "sigh-AM-oh-GAH-lay meh-lee-LOO-trah",               "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "50%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Clams, crabs, hard-shelled prey; fish", "icon": "fish" },
+    { "label": "Size",     "value": "6.5 ft long × ~2 ft tall",              "icon": "ruler" },
+    { "label": "Location", "value": "East Asia (Yunnan, China)",             "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Exceptionally strong bite and thick enamel for shell-crushing.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Largest known otter; discovered in lignite mines of Yunnan.",     "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",     "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",     "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",     "icon": "school" },
+    { "label": "Order",   "value": "Carnivora",    "icon": "list-tree" },
+    { "label": "Family",  "value": "Mustelidae",   "icon": "users" },
+    { "label": "Genus",   "value": "Siamogale",    "icon": "dna" },
+    { "label": "Species", "value": "S. melilutra", "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Late Miocene"
+}

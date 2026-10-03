@@ -1,0 +1,43 @@
+// data/animals/titanoboa.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Paleocene (~60–58 Ma)",      "icon": "layers" },
+    { "key": "Diet Type",     "value": "Carnivore",                  "icon": "drumstick" },
+    { "key": "Means",         "value": "\"titanic boa\"",              "icon": "quote" },
+    { "key": "Pronunciation", "value": "tie-TAN-oh-BOH-uh seh-reh-ho-NEN-sis", "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "72%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Crocodilians, large fish, turtles", "icon": "drumstick" },
+    { "label": "Size",     "value": "42 ft long × ~1.5 ft thick",        "icon": "ruler" },
+    { "label": "Location", "value": "Northern South America (Cerrejón, Colombia)", "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Largest known snake; thrived in hot, swampy Paleocene rainforests.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Its gigantic size helps paleoclimatologists estimate ancient tropical temperatures.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",     "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",     "icon": "folder-tree" },
+    { "label": "Class",   "value": "Reptilia",     "icon": "school" },
+    { "label": "Order",   "value": "Squamata",     "icon": "list-tree" },
+    { "label": "Family",  "value": "Boidae",       "icon": "users" },
+    { "label": "Genus",   "value": "Titanoboa",    "icon": "dna" },
+    { "label": "Species", "value": "T. cerrejonensis", "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Paleocene"
+}

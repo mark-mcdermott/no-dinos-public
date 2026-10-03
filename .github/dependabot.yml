@@ -1,0 +1,20 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+    ignore:
+      # Pinned on purpose: 4.3 changed the default font stack and moved every
+      # glyph on the deck. Bump by hand, with the visual suite, if ever.
+      - dependency-name: tailwindcss
+      - dependency-name: "@tailwindcss/vite"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

@@ -1,0 +1,10 @@
+// data/titles/01-cover-slide.jsonc
+{
+  "title": "Extinct Ancient Animals",
+  "titleSize": 300,
+  "alignY": "center", 
+  "alignX": "left",
+  "stackWords": true,
+  // Keeps the rider (far right, near the top) in frame at any window shape
+  "imageFocus": { "x": 95, "y": 20 }
+}

@@ -1,0 +1,8 @@
+// data/titles/03-just-like-currents-but-bigger.jsonc
+{
+  "title": "Same But Supersized",
+  "titleSize": 200,
+  "alignY": "center", 
+  "alignX": "left",
+  "stackWords": true
+}

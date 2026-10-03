@@ -1,0 +1,77 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # Real art only when the run can read the private art repo (own PRs and
+      # pushes). Dependabot and fork PRs get no secrets, so they build with
+      # generated placeholders and skip the visual comparison.
+      ART_REPO_URL: ${{ secrets.ART_REPO_TOKEN != '' && vars.ART_REPO_URL || '' }}
+      ART_REPO_TOKEN: ${{ secrets.ART_REPO_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Version comes from `packageManager` in package.json.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 25
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm art
+
+      # astro:assets keeps its WebP derivatives here; restoring them skips
+      # re-encoding ~170 MB of source art on every run.
+      - uses: actions/cache@v4
+        with:
+          path: node_modules/.astro
+          key: astro-assets-${{ hashFiles('src/assets/images/**', 'pnpm-lock.yaml') }}
+          restore-keys: astro-assets-
+
+      - run: pnpm build
+      - run: pnpm lint
+
+      - run: pnpm exec playwright install --with-deps chromium
+
+      - run: pnpm test:controls
+
+      # Compares this branch with production. A PR that changes the deck on
+      # purpose fails this by design, so it reports rather than blocks: the
+      # outcome goes in the run summary and the diffs are uploaded to look at.
+      - name: Visual comparison with production
+        id: visual
+        if: github.event_name == 'pull_request' && env.ART_REPO_URL != ''
+        continue-on-error: true
+        run: pnpm test:visual
+
+      - name: Report visual result
+        if: github.event_name == 'pull_request' && env.ART_REPO_URL != ''
+        run: |
+          if [ "${{ steps.visual.outcome }}" = "success" ]; then
+            echo "### Visual: no change from production" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### Visual: differs from production" >> "$GITHUB_STEP_SUMMARY"
+            echo "Expected if this PR changes the deck on purpose. Reference, candidate and diff PNGs are in the \`visual-diffs\` artifact." >> "$GITHUB_STEP_SUMMARY"
+            echo "::warning title=Visual diff::This branch renders differently from production — see the visual-diffs artifact."
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'pull_request' && steps.visual.outcome == 'failure'
+        with:
+          name: visual-diffs
+          path: test-results/visual/
+          retention-days: 14

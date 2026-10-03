@@ -1,0 +1,42 @@
+// data/animals/thylacine.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Holocene (extinct 1936 CE)",                 "icon": "layers" },
+    { "key": "Diet Type",      "value": "Carnivore",                                  "icon": "drumstick" },
+    { "key": "Means",          "value": "\"pouched dog\" (thylakos 'pouch' + kynos 'dog')", "icon": "quote" },
+    { "key": "Pronunciation",  "value": "THY-luh-seen / THY-luh-sine",                "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "60%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Wallabies, small kangaroos, birds; scavenged carrion", "icon": "drumstick" },
+    { "label": "Size",     "value": "Body 39–51 in (1–1.3 m); 20–30 kg",                    "icon": "ruler" },
+    { "label": "Location", "value": "Tasmania (once mainland Australia & New Guinea)",       "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Marsupial apex predator with dog-like skull but a pouch and stiff tail.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Also called “Tasmanian tiger” for its stripes; last known individual died in Hobart Zoo (1936).", "icon": "sparkles" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",         "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",         "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",         "icon": "school" },
+    { "label": "Order",   "value": "Dasyuromorphia",   "icon": "list-tree" },
+    { "label": "Family",  "value": "Thylacinidae",     "icon": "users" },
+    { "label": "Genus",   "value": "Thylacinus",       "icon": "dna" },
+    { "label": "Species", "value": "T. cynocephalus",  "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Holocene"
+}

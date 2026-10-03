@@ -1,0 +1,42 @@
+// data/animals/platybelodon.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Miocene (~15–4 Ma)",                         "icon": "layers" },
+    { "key": "Diet Type",      "value": "Herbivore (shovel-tusk browser/grazer)",     "icon": "drumstick" },
+    { "key": "Means",          "value": "\"flat spear tooth\" (platy + belos + odon)",  "icon": "quote" },
+    { "key": "Pronunciation",  "value": "PLAT-ee-BELL-uh-don GRANG-er-eye",           "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "32%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Aquatic plants; bark and branches scraped with lower tusks", "icon": "drumstick" },
+    { "label": "Size",     "value": "Height ≈9–10 ft (2.7–3 m); several tons",                    "icon": "ruler" },
+    { "label": "Location", "value": "Asia (esp. China & Mongolia); Miocene wetlands",             "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Lower jaw and tusks form a ‘shovel’ used with a broad trunk tip to shear and scoop vegetation.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Not a true elephant—an amebelodontid proboscidean closely related to gomphotheres.",             "icon": "sparkles" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",        "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",        "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",        "icon": "school" },
+    { "label": "Order",   "value": "Proboscidea",     "icon": "list-tree" },
+    { "label": "Family",  "value": "Amebelodontidae", "icon": "users" },
+    { "label": "Genus",   "value": "Platybelodon",    "icon": "dna" },
+    { "label": "Species", "value": "P. grangeri",     "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Miocene"
+}

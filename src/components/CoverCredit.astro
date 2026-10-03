@@ -1,0 +1,17 @@
+---
+// src/components/CoverCredit.astro
+//
+// The byline on the cover slide, bottom left. On phones the dock spans the
+// full width, so the credit sits above it instead of beside it.
+
+const LINK_CLASS =
+  "font-semibold text-white underline decoration-white/40 underline-offset-2 transition-colors " +
+  "hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 rounded-sm"
+---
+
+<p
+  class="absolute left-4 bottom-4 max-md:bottom-20 z-30 rounded-full bg-black/45 px-3.5 py-1.5
+         text-[13px] text-white/90 shadow-lg backdrop-blur-md"
+>
+  With <span role="img" aria-label="love">🩶</span> by <a href="https://markmcdermott.io" class={LINK_CLASS}>Mark McDermott</a>
+</p>

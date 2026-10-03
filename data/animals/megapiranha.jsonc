@@ -1,0 +1,42 @@
+// data/animals/megapiranha.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Late Miocene (~10–8 Ma)",                   "icon": "layers" },
+    { "key": "Diet Type",      "value": "Omnivore (shearing & crushing dentition)",  "icon": "drumstick" },
+    { "key": "Means",          "value": "\"giant piranha\"",                            "icon": "quote" },
+    { "key": "Pronunciation",  "value": "MEG-uh-pih-RON-uh pah-rah-NEN-sis",         "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "38%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Fish, small vertebrates; likely plants/seeds too", "icon": "drumstick" },
+    { "label": "Size",     "value": "Length ≈1 m (3.3 ft)",                             "icon": "ruler" },
+    { "label": "Location", "value": "Paraná basin, Argentina (South America)",          "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Tooth row bridges modern piranhas and pacus—both slicing and crushing were possible.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Scaled-up bite force estimates give it a record bite per body weight among fishes.",   "icon": "sparkles" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",         "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",         "icon": "folder-tree" },
+    { "label": "Class",   "value": "Actinopterygii",   "icon": "school" },
+    { "label": "Order",   "value": "Characiformes",    "icon": "list-tree" },
+    { "label": "Family",  "value": "Serrasalmidae",    "icon": "users" },
+    { "label": "Genus",   "value": "Megapiranha",      "icon": "dna" },
+    { "label": "Species", "value": "M. paranensis",    "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Miocene"
+}

@@ -1,0 +1,147 @@
+---
+// ------------------------------
+// file: components/TitleSlide.astro
+// ------------------------------
+import LoaderImage from "@/components/LoaderImage.astro"
+import type { SlideImageSource, TitleData } from "@/lib/types"
+
+type VAlign = "top" | "center" | "bottom"
+type HAlign = "left" | "center" | "right"
+
+type TitleExtras = Partial<{
+  alignY: VAlign
+  align: VAlign // legacy
+  alignX: HAlign
+  titleSize: number
+  stackWords: boolean
+}>
+
+interface Props {
+  image: SlideImageSource
+  title: TitleData
+  priority?: boolean
+}
+
+const { image, title, priority = false } = Astro.props
+
+const t = title as TitleData & TitleExtras
+const main = t.title ?? ""
+
+const v: VAlign = t.alignY ?? t.align ?? "bottom"
+const h: HAlign = t.alignX ?? "left"
+const desktopPx = t.titleSize
+const mobilePx = desktopPx ? Math.max(28, Math.round(desktopPx * 0.45)) : undefined
+const stack = Boolean(t.stackWords)
+
+const mY =
+  v === "top"
+    ? "top-[max(1rem,env(safe-area-inset-top))]"
+    : v === "center"
+      ? "top-1/2 -translate-y-1/2"
+      : "bottom-28"
+const mX =
+  h === "left"
+    ? "left-[max(1rem,env(safe-area-inset-left))]"
+    : h === "center"
+      ? "left-1/2 -translate-x-1/2 text-center"
+      : "right-[max(1rem,env(safe-area-inset-right))] text-right"
+const mPos = `${mY} ${mX}`
+
+// Bottom-aligned titles sit 0.2em up so descenders (g, y, p) clear the edge.
+const dY = v === "top" ? "top-[-0.75rem]" : v === "center" ? "top-1/2 -translate-y-1/2" : "bottom-[0.2em]"
+const dX =
+  h === "left" ? "left-[-1rem]" : h === "center" ? "left-1/2 -translate-x-1/2 text-center" : "right-[0.06em] text-right"
+const dPos = `${dY} ${dX}`
+
+const titleWords = main.trim().split(/\s+/)
+const words = stack ? titleWords : [main]
+
+// Below lg the configured px size is only a ceiling: the title also shrinks so
+// its longest word fits the viewport width and, assuming the worst case of one
+// word per line, its lines fit the height. 0.6em per character is a safe upper bound for this face at
+// extrabold — the widest word in the deck measures 0.567em per character.
+const EM_PER_CHAR = 0.6
+const longestWord = Math.max(1, ...titleWords.map((w) => w.length))
+const fitSize = [
+  `calc((100vw - 2rem) / ${(longestWord * EM_PER_CHAR).toFixed(2)})`,
+  `calc((100dvh - 8rem) / ${(titleWords.length * 0.95).toFixed(2)})`,
+].join(",")
+const sizeVars = (px: number) => `--title-size:${px}px;--title-fit:min(${fitSize})`
+const FIT_CLASS =
+  "text-[length:var(--title-size)] max-lg:text-[length:min(var(--title-size),var(--title-fit))]"
+
+const mobileClass = [
+  "md:hidden absolute z-[2]",
+  mPos,
+  "text-white font-extrabold tracking-tight",
+  "drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]",
+  mobilePx && FIT_CLASS,
+]
+  .filter(Boolean)
+  .join(" ")
+const mobileStyle = mobilePx ? `${sizeVars(mobilePx)};line-height:0.95` : undefined
+
+const desktopClass = [
+  "hidden md:block absolute z-[2]",
+  dPos,
+  "font-extrabold tracking-tight leading-[0.9]",
+  "text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]",
+  "mix-blend-luminosity",
+  desktopPx && FIT_CLASS,
+]
+  .filter(Boolean)
+  .join(" ")
+const desktopStyle = desktopPx ? sizeVars(desktopPx) : undefined
+---
+
+<main class="relative flex-1 min-h-dvh bg-neutral-50">
+  {/* Fullscreen image */}
+  <div class="absolute inset-0">
+    <LoaderImage
+      image={image}
+      alt={main || "title slide"}
+      fill
+      sizes="100vw"
+      priority={priority}
+      position={t.imageFocus && `${t.imageFocus.x}% ${t.imageFocus.y}%`}
+      class="object-cover"
+    />
+    <div
+      class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent"
+    >
+    </div>
+  </div>
+
+  {/* Title only */}
+  {
+    main && (
+      <Fragment>
+        {/* Mobile */}
+        <h1 class={mobileClass} style={mobileStyle} aria-label={main}>
+          {stack ? (
+            <span class="flex flex-col leading-[0.95]">
+              {words.map((w) => (
+                <span class="block">{w}</span>
+              ))}
+            </span>
+          ) : (
+            main
+          )}
+        </h1>
+
+        {/* md+ oversized */}
+        <h1 class={desktopClass} style={desktopStyle} aria-label={main}>
+          {stack ? (
+            <span class="flex flex-col leading-[0.9]">
+              {words.map((w) => (
+                <span class="block">{w}</span>
+              ))}
+            </span>
+          ) : (
+            main
+          )}
+        </h1>
+      </Fragment>
+    )
+  }
+</main>

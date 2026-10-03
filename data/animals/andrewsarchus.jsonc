@@ -1,0 +1,43 @@
+// data/animals/andrewsarchus.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Eocene (Middle Eocene, ~45–36 Ma)", "icon": "layers" },
+    { "key": "Diet Type",     "value": "Carnivore / Scavenger-leaning Omnivore", "icon": "drumstick" },
+    { "key": "Means",         "value": "\"Andrews' ruler\" (named for R.C. Andrews)", "icon": "quote" },
+    { "key": "Pronunciation", "value": "AN-droo-SAR-kuss mon-go-lee-EN-sis", "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "44%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Large ungulates, turtles, carrion (inferred)", "icon": "drumstick" },
+    { "label": "Size",     "value": "Skull ~33 in (83 cm); body size debated",      "icon": "ruler" },
+    { "label": "Location", "value": "Inner Mongolia, China (Irdin Manha Fm.)",      "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Known from a single giant skull; overall body proportions are reconstructed and remain debated.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Discovered by the 1920s AMNH expeditions led by Roy Chapman Andrews; long debated placement among hoofed mammals.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",                       "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",                       "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",                       "icon": "school" },
+    { "label": "Order",   "value": "Artiodactyla (placement debated)","icon": "list-tree" },
+    { "label": "Family",  "value": "Andrewsarchidae (debated)",      "icon": "users" },
+    { "label": "Genus",   "value": "Andrewsarchus",                  "icon": "dna" },
+    { "label": "Species", "value": "A. mongoliensis",                "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Eocene"
+}

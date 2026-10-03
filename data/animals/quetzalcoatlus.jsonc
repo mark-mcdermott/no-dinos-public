@@ -1,0 +1,42 @@
+// data/animals/quetzalcoatlus.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Late Cretaceous (Maastrichtian, ~68–66 Ma)", "icon": "layers" },
+    { "key": "Diet Type",      "value": "Carnivore (terrestrial stalker / opportunist)", "icon": "drumstick" },
+    { "key": "Means",          "value": "Named after the Aztec \"feathered serpent\" deity Quetzalcoatl", "icon": "quote" },
+    { "key": "Pronunciation",  "value": "ket-SAL-koh-AT-lus NORTH-roh-pee", "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "62%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Small vertebrates, carrion; fish when available", "icon": "drumstick" },
+    { "label": "Size",     "value": "Wingspan ≈33–36 ft (10–11 m)",                    "icon": "ruler" },
+    { "label": "Location", "value": "North America — Texas (Big Bend National Park)",  "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Giant azhdarchid pterosaur with a long, stiff neck and toothless spear-like beak; among the largest flying animals ever.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Likely soared efficiently and foraged on land like a stalking stork; standing height rivaled a giraffe when on all fours.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",        "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",        "icon": "folder-tree" },
+    { "label": "Class",   "value": "Reptilia",        "icon": "school" },
+    { "label": "Order",   "value": "Pterosauria",     "icon": "list-tree" },
+    { "label": "Family",  "value": "Azhdarchidae",    "icon": "users" },
+    { "label": "Genus",   "value": "Quetzalcoatlus",  "icon": "dna" },
+    { "label": "Species", "value": "Q. northropi",    "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Cretaceous"
+}

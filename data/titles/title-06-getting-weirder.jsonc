@@ -1,0 +1,8 @@
+// data/titles/06-getting-weirder.jsonc
+{
+  "title": "Getting Weirder",
+  "titleSize": 300,
+  "alignY": "bottom", 
+  "alignX": "left",
+  "stackWords": true
+}

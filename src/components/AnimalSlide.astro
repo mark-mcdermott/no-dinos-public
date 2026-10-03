@@ -1,0 +1,107 @@
+---
+// src/components/AnimalSlide.astro
+
+import LoaderImage from "@/components/LoaderImage.astro"
+import Timeline from "@/components/Timeline.astro"
+import type { AnimalData, SlideImageSource } from "@/lib/types"
+
+interface Props {
+  image: SlideImageSource
+  data: AnimalData
+  /** optional title from the deck */
+  title?: string
+  priority?: boolean
+}
+
+const { image, data, title, priority = false } = Astro.props
+
+const commonName =
+  data.metadata?.find((m) => m.key.toLowerCase().includes("common"))?.value ?? "Animal"
+const badgeText = title || commonName
+const accent = "rgb(20 184 166)"
+const mainStyle = [
+  "--grid:radial-gradient(circle at 1px 1px, #eaeaea 1px, transparent 1.2px)",
+  "background-image:var(--grid)",
+  "background-size:20px 20px",
+  "background-blend-mode:multiply",
+  `--accent:${accent}`,
+].join(";")
+---
+
+<main
+  class="flex-1 flex flex-col items-center justify-center gap-5 sm:gap-7 p-4 sm:p-8 relative bg-neutral-50"
+  style={mainStyle}
+>
+  {/* Hero Card */}
+  <div
+    class="relative w-full max-w-5xl rounded-[26px] p-[1px] shadow-xl ring-1 ring-black/5"
+    style="background:linear-gradient(135deg, rgba(0,0,0,.06), rgba(0,0,0,.02)),linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,0))"
+  >
+    <div class="relative rounded-[24px] overflow-hidden bg-white">
+      <LoaderImage
+        image={image}
+        alt={`${badgeText} illustration`}
+        width={1600}
+        height={900}
+        sizes="(max-width: 1024px) 100vw, calc(100vw - 20rem)"
+        priority={priority}
+        class="w-full h-auto object-cover"
+      />
+      {/* subtle top fade */}
+      <div
+        class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"
+      >
+      </div>
+
+      {/* Oversized headline (md+), chip fallback on small screens) */}
+      <div class="absolute inset-0 pointer-events-none overflow-visible">
+        {/* mobile chip */}
+        <div
+          class="md:hidden absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-medium text-white/95 shadow"
+          style="background-color:var(--accent)"
+        >
+          {badgeText}
+        </div>
+
+        {/* dribbble/codrops-style headline */}
+        <h2
+          class="hidden md:block absolute left-[-1rem] top-[-0.75rem] z-[2] text-[clamp(28px,6vw,72px)] leading-[0.9] font-extrabold tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+          aria-label={badgeText}
+        >
+          {badgeText}
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <Timeline current={data.geologicPeriod} />
+
+  {/* QuickFacts as cards (with accent hover) */}
+  {
+    Array.isArray(data.quickFacts) && data.quickFacts.length > 0 && (
+      <div class="w-full max-w-5xl mt-4 py-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {data.quickFacts.map((qf) => (
+            <div
+              class="rounded-xl border border-neutral-200/80 bg-white/70 backdrop-blur-md px-5 py-3 shadow-sm transition
+                     hover:shadow-md hover:border-neutral-300
+                     hover:[box-shadow:0_1px_0_0_rgba(0,0,0,0.04),inset_0_-3px_0_0_var(--accent)]"
+            >
+              {/* label w/ teal dot */}
+              <div class="text-[11px] uppercase tracking-widest text-neutral-500 flex items-center gap-2">
+                <span
+                  class="inline-block h-1.5 w-1.5 rounded-full"
+                  style="background-color:var(--accent)"
+                  aria-hidden="true"
+                />
+                {qf.label}
+              </div>
+
+              <div class="text-sm font-semibold text-neutral-800">{qf.value}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+</main>

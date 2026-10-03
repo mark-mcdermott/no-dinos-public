@@ -1,0 +1,42 @@
+// data/animals/pentecopterus.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Middle Ordovician (Darriwilian, ~467 Ma)",            "icon": "layers" },
+    { "key": "Diet Type",      "value": "Carnivore / Scavenger (eurypterid 'sea scorpion')",   "icon": "drumstick" },
+    { "key": "Means",          "value": "\"Penteconter-wing\" — named after an ancient Greek warship", "icon": "quote" },
+    { "key": "Pronunciation",  "value": "pen-teh-KOP-ter-us deh-kor-uh-HEN-sis",               "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "25%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Trilobites, small arthropods, soft-bodied prey; opportunistic scavenging", "icon": "drumstick" },
+    { "label": "Size",     "value": "Up to ≈5.5 ft (1.7 m) long",                                               "icon": "ruler" },
+    { "label": "Location", "value": "Winneshiek Shale, Iowa (USA); near-shore marine basin",                    "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Basal eurypterid with long, spined limbs and streamlined body—among the earliest large arthropod predators.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Preserved in a meteor-impact-related basin, yielding exceptional fossils including soft tissues.",             "icon": "sparkles" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",     "icon": "crown" },
+    { "label": "Phylum",  "value": "Arthropoda",   "icon": "folder-tree" },
+    { "label": "Class",   "value": "†Eurypterida", "icon": "school" },
+    { "label": "Order",   "value": "*Eurypterida", "icon": "list-tree" },
+    { "label": "Family",  "value": "Megalograptidae", "icon": "users" },
+    { "label": "Genus",   "value": "Pentecopterus","icon": "dna" },
+    { "label": "Species", "value": "P. decorahensis", "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Ordovician"
+}

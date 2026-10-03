@@ -1,0 +1,240 @@
+---
+// The deck.
+//
+// Phase 4 of docs/astro-rewrite-plan.md. Every state the deck can be in is
+// rendered here at build time — 28 animals × 2 view modes + 8 title slides,
+// which render identically in either mode, so 64 in all — each as its own
+// `<section hidden>`. `view-source` shows the entire deck; no state is injected
+// by JS, and none of them needs JS to be correct.
+//
+// This replaces the Next-era model rather than porting it. Deck.tsx held the
+// slide list in React state, rendered exactly one slide, and warmed the images
+// of upcoming slides over the network by URL. With every state already in the
+// document and every derivative already hashed onto disk by astro:assets,
+// there is nothing left to prefetch and nothing left to re-render: navigation
+// is `hidden` toggling, which DeckControls owns. The prefetch module that did
+// the warming went away in phase 7 with the rest of the Next-era code.
+//
+// Two scripts touch the page and the order matters. The blocking inline script
+// below applies the cookie state during parse, so the saved slide is the first
+// thing painted. DeckControls then hydrates and takes over interaction. Without
+// the inline pass the page would paint slide 1 and swap once React arrived —
+// visible as a flash, and enough to make the visual suite screenshot the wrong
+// slide.
+
+import "../styles/globals.css"
+import { getImage } from "astro:assets"
+import type { ImageMetadata } from "astro"
+import { getOrderedSlides } from "@/lib/slides"
+import { dataviewImage, fullscreenImage, titleImage } from "@/lib/slide-images"
+import DeckSlide from "@/components/DeckSlide.astro"
+import DeckControls from "@/components/DeckControls"
+import type { AnimalData, SlideImageSource, TitleData } from "@/lib/types"
+import type { ViewMode } from "@/lib/cookies"
+
+// The `sizes` each layout renders with, carried over from the Next build so the
+// browser picks the same candidate width it did there.
+const DATAVIEW_SIZES = "(max-width: 1024px) 100vw, calc(100vw - 20rem)"
+const FULLSCREEN_SIZES = "100vw"
+
+// Three candidates per image, which is what phase 3 measured the build against.
+// Sources are only 1536–1820px wide, so anything above that would be upscaling.
+//
+// 1200 rather than a rounder number because it is the rung of next/image's
+// default ladder that the old build served into the data-view slot (1120px wide
+// at the 1440px the visual suite shoots at). Matching it means the browser
+// downscales from the same source width here as it did there, so the comparison
+// against the Next build measures the port rather than two different resamples
+// — a mismatch here showed up as diffuse speckle over high-frequency artwork.
+const CANDIDATE_WIDTHS = [640, 1200]
+
+async function resolve(meta: ImageMetadata, sizes: string): Promise<SlideImageSource> {
+  const widths = [...CANDIDATE_WIDTHS.filter((w) => w < meta.width), meta.width]
+  const image = await getImage({ src: meta, widths, sizes, format: "webp" })
+  return { src: image.src, srcSet: image.srcSet.attribute || undefined }
+}
+
+const slides = await getOrderedSlides()
+const total = slides.length
+
+type DeckState = {
+  index: number
+  slug: string
+  kind: "animal" | "title"
+  /** The mode this state renders, and the label baked into its chrome. */
+  mode: ViewMode
+  /** Which `view_mode` cookie values select this section. */
+  match: ViewMode | "both"
+  image: SlideImageSource
+  animal?: AnimalData
+  titleData?: TitleData
+}
+
+const states: DeckState[] = []
+
+for (const [index, slide] of slides.entries()) {
+  if (slide.kind === "animal") {
+    const animal = slide.entry.data
+    states.push({
+      index,
+      slug: slide.slug,
+      kind: "animal",
+      mode: "dataview",
+      match: "dataview",
+      image: await resolve(await dataviewImage(slide.slug), DATAVIEW_SIZES),
+      animal,
+    })
+    states.push({
+      index,
+      slug: slide.slug,
+      kind: "animal",
+      mode: "fullscreen",
+      match: "fullscreen",
+      image: await resolve(await fullscreenImage(slide.slug), FULLSCREEN_SIZES),
+      animal,
+    })
+  } else {
+    states.push({
+      index,
+      slug: slide.slug,
+      kind: "title",
+      mode: "dataview",
+      match: "both",
+      image: await resolve(await titleImage(slide.slug), FULLSCREEN_SIZES),
+      titleData: slide.entry.data,
+    })
+  }
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>no-dinos.com</title>
+    {/*
+      The mammoth mark. `public/` is otherwise off-limits (see CLAUDE.md) —
+      that rule is about slide art bypassing astro:assets, not favicons, which
+      are unprocessed-by-design and belong at a fixed root path regardless of
+      build hashing. Source lives at brand/mammoth-462x360.png; these four
+      files are generated from it (square-padded, then resized/flattened),
+      not hand-edited.
+    */}
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body class="min-h-screen bg-neutral-50 text-neutral-900">
+    <div id="deck" data-deck-root data-total={total}>
+      {
+        states.map((state, i) => (
+          <section
+            data-deck-state
+            data-index={state.index}
+            data-mode={state.match}
+            hidden={i !== 0}
+          >
+            <DeckSlide
+              index={state.index}
+              total={total}
+              slug={state.slug}
+              kind={state.kind}
+              mode={state.mode}
+              image={state.image}
+              animal={state.animal}
+              titleData={state.titleData}
+              priority={i === 0}
+            />
+          </section>
+        ))
+      }
+    </div>
+
+    {/*
+      Applies the saved slide and view mode during parse, before the first
+      paint. Deliberately inline and blocking: DeckControls hydrates too late to
+      decide what the first frame looks like. Plain browser JS with no imports
+      and no build step behind it (`is:inline` ships it verbatim), and kept
+      small — the island owns everything after this. The data attributes it
+      reads are the contract shared with DeckControls.tsx; change them in both
+      places.
+    */}
+    <script is:inline>
+      (function () {
+        const root = document.getElementById("deck")
+        if (!root) return
+
+        const read = function (name) {
+          const rows = document.cookie ? document.cookie.split("; ") : []
+          for (let i = 0; i < rows.length; i++) {
+            if (rows[i].indexOf(name + "=") === 0) return rows[i].slice(name.length + 1)
+          }
+          return ""
+        }
+
+        const total = Number(root.getAttribute("data-total")) || 0
+        const raw = Number(read("current_slide"))
+        let index = isFinite(raw) && raw >= 0 ? raw : 0
+        index = Math.min(Math.max(index, 0), Math.max(total - 1, 0))
+
+        const saved = read("view_mode")
+        const mode = saved === "fullscreen" || saved === "dataview" ? saved : "dataview"
+
+        const sections = root.querySelectorAll("[data-deck-state]")
+
+        // The slide being shown is not a candidate for lazy loading any more:
+        // promote it so the browser fetches it now instead of waiting to
+        // decide, which also keeps it part of the window load event.
+        const promote = function (section) {
+          const imgs = section.querySelectorAll("img[loading=lazy]")
+          for (let k = 0; k < imgs.length; k++) imgs[k].loading = "eager"
+        }
+
+        // The section at idx in the current mode, or null off either end of
+        // the deck. Title slides are data-mode="both" and match regardless.
+        const sectionAt = function (idx) {
+          for (let i = 0; i < sections.length; i++) {
+            const s = sections[i]
+            const sectionMode = s.getAttribute("data-mode")
+            if (Number(s.getAttribute("data-index")) === idx && (sectionMode === "both" || sectionMode === mode)) {
+              return s
+            }
+          }
+          return null
+        }
+
+        for (let i = 0; i < sections.length; i++) {
+          const section = sections[i]
+          const sectionMode = section.getAttribute("data-mode")
+          const active =
+            Number(section.getAttribute("data-index")) === index &&
+            (sectionMode === "both" || sectionMode === mode)
+
+          section.hidden = !active
+          if (!active) continue
+
+          promote(section)
+
+          // Title slides are built once for both modes, so their mode label is
+          // the one piece of baked text that can be out of date.
+          const labels = section.querySelectorAll("[data-deck-mode-label]")
+          for (let j = 0; j < labels.length; j++) labels[j].textContent = mode
+        }
+
+        // Fetch the immediate neighbours too, in the current mode — see the
+        // matching comment in DeckControls.tsx for why ±1.
+        const prev = sectionAt(index - 1)
+        const next = sectionAt(index + 1)
+        if (prev) promote(prev)
+        if (next) promote(next)
+      })()
+    </script>
+
+    {/* Renders nothing; owns navigation, view mode and cookie persistence. */}
+    <div hidden>
+      <DeckControls client:load total={total} />
+    </div>
+  </body>
+</html>

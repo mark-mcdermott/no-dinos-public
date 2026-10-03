@@ -1,0 +1,43 @@
+// data/animals/glyptodon.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Pleistocene (~2.5 Ma–10 ka)", "icon": "layers" },
+    { "key": "Diet Type",     "value": "Herbivore (grazer)",          "icon": "drumstick" },
+    { "key": "Means",         "value": "\"carved/engraved tooth\"",     "icon": "quote" },
+    { "key": "Pronunciation", "value": "GLIP-toh-don ASS-per",        "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "33%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Grasses, sedges, tough plants",      "icon": "leaf" },
+    { "label": "Size",     "value": "11 ft long × ~5 ft tall (shell)",    "icon": "ruler" },
+    { "label": "Location", "value": "South America (Argentina, Brazil, Uruguay)", "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Domed, armored shell with bony osteoderms; heavy tail club in relatives.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Close kin of armadillos (order Cingulata).", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",        "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",        "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",        "icon": "school" },
+    { "label": "Order",   "value": "Cingulata",       "icon": "list-tree" },
+    { "label": "Family",  "value": "Glyptodontidae",  "icon": "users" },
+    { "label": "Genus",   "value": "Glyptodon",       "icon": "dna" },
+    { "label": "Species", "value": "G. asper",        "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Pleistocene"
+}

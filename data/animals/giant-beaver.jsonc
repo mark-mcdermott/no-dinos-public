@@ -1,0 +1,43 @@
+// data/animals/giant-beaver.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Pleistocene (2.6 Ma–10 ka)", "icon": "layers" },
+    { "key": "Diet Type",     "value": "Herbivore",                  "icon": "drumstick" },
+    { "key": "Means",         "value": "\"beaver-like\"",              "icon": "quote" },
+    { "key": "Pronunciation", "value": "kas-toh-ROY-deez oh-HI-oh-EN-sis", "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "58%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Aquatic plants, pond weeds, water lilies", "icon": "leaf" },
+    { "label": "Size",     "value": "8 ft long × 3.5 ft tall",                  "icon": "ruler" },
+    { "label": "Location", "value": "North America (lakes & wetlands)",         "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "One of the largest rodents; incisors suited for vegetation, not wood-cutting like modern beavers.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Probably didn’t build large dams like living beavers.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",         "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",         "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",         "icon": "school" },
+    { "label": "Order",   "value": "Rodentia",         "icon": "list-tree" },
+    { "label": "Family",  "value": "Castoroididae",    "icon": "users" },
+    { "label": "Genus",   "value": "Castoroides",      "icon": "dna" },
+    { "label": "Species", "value": "C. ohioensis",     "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Pleistocene"
+}

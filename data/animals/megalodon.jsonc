@@ -1,0 +1,43 @@
+// data/animals/megalodon.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Miocene–Pliocene (~23–3.6 Ma)", "icon": "layers" },
+    { "key": "Diet Type",     "value": "Carnivore (apex predator)",     "icon": "drumstick" },
+    { "key": "Means",         "value": "\"big tooth\"",                   "icon": "quote" },
+    { "key": "Pronunciation", "value": "MEG-uh-luh-don",                "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "68%",                           "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Whales, seals, large fish, sea turtles", "icon": "drumstick" },
+    { "label": "Size",     "value": "50–60 ft long (est.)",                   "icon": "ruler" },
+    { "label": "Location", "value": "Worldwide (warm–temperate oceans)",      "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Giant otodontid shark with massive, serrated teeth; among the largest predatory fishes ever.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Not a giant great white—modern consensus places it in genus Otodus (family Otodontidae), separate from great whites.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",          "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",          "icon": "folder-tree" },
+    { "label": "Class",   "value": "Chondrichthyes",    "icon": "school" },
+    { "label": "Order",   "value": "Lamniformes",       "icon": "list-tree" },
+    { "label": "Family",  "value": "Otodontidae",       "icon": "users" },
+    { "label": "Genus",   "value": "Otodus",            "icon": "dna" },
+    { "label": "Species", "value": "O. megalodon",      "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Miocene–Pliocene"
+}

@@ -1,0 +1,39 @@
+#!/bin/sh
+# Refuses a direct push to main. Work goes through a PR — see CLAUDE.md.
+#
+# Enable once per clone:
+#   git config core.hooksPath .githooks
+#
+# Genuine emergency (a broken production deploy, say):
+#   ALLOW_MAIN_PUSH=1 git push origin main
+
+remote_ref_prefix="refs/heads/main"
+
+while read -r _local_ref _local_sha remote_ref _remote_sha; do
+  case "$remote_ref" in
+    "$remote_ref_prefix")
+      if [ "$ALLOW_MAIN_PUSH" = "1" ]; then
+        echo "pre-push: ALLOW_MAIN_PUSH set — pushing to main anyway." >&2
+        exit 0
+      fi
+      cat >&2 <<'MSG'
+
+  Refusing to push directly to main.
+
+  This repo uses pull requests. Try:
+
+      git switch -c <type>/<short-name>
+      git push -u origin HEAD
+      gh pr create
+
+  If this really is an emergency:
+
+      ALLOW_MAIN_PUSH=1 git push origin main
+
+MSG
+      exit 1
+      ;;
+  esac
+done
+
+exit 0

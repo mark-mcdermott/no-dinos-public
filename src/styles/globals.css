@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* Accent */
+  --accent: #14b8a6;
+  /* teal-500 */
+  --accent-600: #0d9488;
+  /* teal-600 */
+  --accent-700: #0f766e;
+  /* teal-700 */
+
+  /* Warm neutrals */
+  --fg: #0b1324;
+  /* primary text */
+  --muted-fg: #667085;
+  --border: #e5e7eb;
+  /* neutral-200 */
+  --surface: #ffffff;
+  --surface-2: #fcfcfd;
+
+  /* Complementary hint */
+  --sand: #f5e6c8;
+
+  /* Default focus ring color for Tailwind ring utilities */
+  --ring: var(--accent);
+
+  color-scheme: light;
+  /* keep form controls consistent */
+}
+
+/* Optional dark mode palette (uncomment if you add dark mode) */
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg:        #e6e6e6;
+    --muted-fg:  #a1a1aa;
+    --border:    #2b2b2b;
+    --surface:   #0b0b0c;
+    --surface-2: #111113;
+    --ring:      var(--accent-600);
+  }
+}
+*/
+
+/* ---------- Base polish ---------- */
+html,
+body {
+  background: var(--surface-2);
+  color: var(--fg);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+/* ---------- Deck ---------- */
+
+/*
+ * All 64 states ship in the HTML and are toggled with the `hidden` attribute.
+ * A bare `hidden` loses to a Tailwind display utility on the same element — the
+ * bug that once rendered every slide at once — so each <section> carries no
+ * display class of its own and the grid/flex wrapper sits on a div inside it.
+ * This rule is the second line of defence behind that.
+ */
+[data-deck-state][hidden] {
+  display: none !important;
+}
+
+/* The status pill hides the nav dock across every state at once. */
+[data-deck-root][data-dock="off"] [data-deck-dock] {
+  display: none;
+}

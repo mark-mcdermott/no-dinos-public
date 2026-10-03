@@ -1,0 +1,43 @@
+// data/animals/arctodus.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Pleistocene (1.8 Ma–11.7 ka)", "icon": "layers" },
+    { "key": "Diet Type",     "value": "Omnivore (scavenger-leaning)",  "icon": "drumstick" },
+    { "key": "Means",         "value": "\"bear tooth\"",                  "icon": "quote" },
+    { "key": "Pronunciation", "value": "ark-TOH-duss SEE-muss",         "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "40%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Carcasses, bison, horses; opportunistic omnivore", "icon": "drumstick" },
+    { "label": "Size",     "value": "9 ft long × 5.5 ft tall (shoulder)",               "icon": "ruler" },
+    { "label": "Location", "value": "North America (from Alaska to the U.S. South)",    "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Long-legged, short-faced bear built for ranging over long distances.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Earlier claims of cheetah-like speed are doubtful; isotopes suggest heavy scavenging.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",     "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",     "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",     "icon": "school" },
+    { "label": "Order",   "value": "Carnivora",    "icon": "list-tree" },
+    { "label": "Family",  "value": "Ursidae",      "icon": "users" },
+    { "label": "Genus",   "value": "Arctodus",     "icon": "dna" },
+    { "label": "Species", "value": "A. simus",     "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Pleistocene"
+}

@@ -1,0 +1,43 @@
+// data/animals/gigantopithecus.jsonc
+{
+  "metadata": [
+    { "key": "Era",           "value": "Pleistocene (~2 Ma–300 ka)", "icon": "layers" },
+    { "key": "Diet Type",     "value": "Herbivore (bamboo-heavy)",   "icon": "drumstick" },
+    { "key": "Means",         "value": "\"giant ape\"",                "icon": "quote" },
+    { "key": "Pronunciation", "value": "jy-gan-toh-pi-THEE-kuss BLAK-ee", "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "35%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Bamboo, tough stems, fruits", "icon": "leaf" },
+    { "label": "Size",     "value": "6 ft long × ~10 ft tall",     "icon": "ruler" },
+    { "label": "Location", "value": "Southern China & Southeast Asia", "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Largest ape known, inferred from massive teeth and jaws.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Teeth often found in cave deposits; popular Bigfoot/Yeti analog in folklore.", "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Domain", "value": "Eukaryota", "icon": "globe" },
+    { "label": "Kingdom", "value": "Animalia",         "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",         "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",         "icon": "school" },
+    { "label": "Order",   "value": "Primates",         "icon": "list-tree" },
+    { "label": "Family",  "value": "Hominidae (Ponginae)", "icon": "users" },
+    { "label": "Genus",   "value": "Gigantopithecus",  "icon": "dna" },
+    { "label": "Species", "value": "G. blacki",        "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Pleistocene"
+}

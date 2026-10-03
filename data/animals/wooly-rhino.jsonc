@@ -1,0 +1,42 @@
+// data/animals/woolly-rhino.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Pleistocene (~2.6 Ma–11.7 ka)",           "icon": "layers" },
+    { "key": "Diet Type",      "value": "Herbivore (grazer)",                      "icon": "drumstick" },
+    { "key": "Means",          "value": "\"hollow tooth\" (Coelodonta) of antiquity", "icon": "quote" },
+    { "key": "Pronunciation",  "value": "SEE-lo-DON-tuh an-TIK-wih-TAY-tiss",      "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "65%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Steppe grasses and sedges",                   "icon": "drumstick" },
+    { "label": "Size",     "value": "Length ≈12–15 ft (3.7–4.5 m); 2–3.5 t",       "icon": "ruler" },
+    { "label": "Location", "value": "Eurasian steppe (from Western Europe to Siberia)", "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Long sloping shoulders, thick coat, and massive nasal horn adapted to cold steppe.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Frequently depicted in Ice Age cave art; survived alongside humans and mammoths.",   "icon": "sparkles" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",            "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",            "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",            "icon": "school" },
+    { "label": "Order",   "value": "Perissodactyla",      "icon": "list-tree" },
+    { "label": "Family",  "value": "Rhinocerotidae",      "icon": "users" },
+    { "label": "Genus",   "value": "Coelodonta",          "icon": "dna" },
+    { "label": "Species", "value": "C. antiquitatis",     "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false
+    }
+  ],
+
+  "geologicPeriod": "Pleistocene"
+}

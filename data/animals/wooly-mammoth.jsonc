@@ -1,0 +1,44 @@
+// data/animals/woolly-mammoth.jsonc
+{
+  "metadata": [
+    { "key": "Era",            "value": "Pleistocene–Holocene (~400 ka–4 ka)",      "icon": "layers" },
+    { "key": "Diet Type",      "value": "Herbivore (grazer)",                        "icon": "drumstick" },
+    { "key": "Means",          "value": "\"first-born/very early\" (Latin: primigenius)", "icon": "quote" },
+    { "key": "Pronunciation",  "value": "mah-MOO-thus PRIM-ih-JEE-nee-us",           "icon": "book-audio" },
+    { "key": "Image Accuracy", "value": "70%", "icon": "target" }
+  ],
+
+  "quickFacts": [
+    { "label": "Eats",     "value": "Steppe grasses, sedges, forbs; bark/twigs in winter", "icon": "drumstick" },
+    { "label": "Size",     "value": "Shoulder ≈9–11 ft (2.7–3.4 m); ~4–6 t",               "icon": "ruler" },
+    { "label": "Location", "value": "Northern Eurasia & North America (last on Wrangel I.)", "icon": "map-pin" }
+  ],
+
+  "details": [
+    { "name": "Unique Aspect", "description": "Dense underwool + long guard hairs, small ears/tail for cold, and huge curved tusks; fat ‘hump’ stores energy.", "icon": "zap" },
+    { "name": "Fun Fact",      "description": "Island holdouts on Wrangel survived until ~2000 BCE—overlapping with the building of the pyramids.",              "icon": "sparkle" }
+  ],
+
+  "classification": [
+    { "label": "Kingdom", "value": "Animalia",           "icon": "crown" },
+    { "label": "Phylum",  "value": "Chordata",           "icon": "folder-tree" },
+    { "label": "Class",   "value": "Mammalia",           "icon": "school" },
+    { "label": "Order",   "value": "Proboscidea",        "icon": "list-tree" },
+    { "label": "Family",  "value": "Elephantidae",       "icon": "users" },
+    { "label": "Genus",   "value": "Mammuthus",          "icon": "dna" },
+    { "label": "Species", "value": "M. primigenius",     "icon": "tag" }
+  ],
+
+  "fullscreenDisplay": [
+    {
+      "titleSize": 220,
+      "alignY": "bottom",
+      "alignX": "left",
+      "stackWords": false,
+      // Keeps the rider (right of centre, near the top) in frame
+      "imageFocus": { "x": 88, "y": 20 }
+    }
+  ],
+
+  "geologicPeriod": "Quaternary"
+}

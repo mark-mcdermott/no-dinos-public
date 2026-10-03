@@ -1,0 +1,154 @@
+---
+// src/components/LoaderImage.astro
+//
+// Renders one slide image from a build-time-resolved descriptor.
+//
+// The Next version wrapped `next/image` and faded the picture in once React
+// saw its `onLoad`. Neither half survives the port. `next/image` rewrites the
+// src to `/_next/image?...`, which needs Next's optimization endpoint — there
+// is no such route in a static Astro build, so it would 404 every slide. And
+// the deck now prerenders all 64 states as HTML that has to look right with no
+// client JS at all (see src/pages/index.astro), so nothing may depend on a
+// React state transition to become visible.
+//
+// What replaces it: `astro:assets` resolves the WebP derivatives at build time
+// and hands this component the finished `src`/`srcset`. The spinner survives as
+// a loading affordance, but it now sits *behind* the image instead of being
+// unmounted once loaded — the picture paints over it the moment it arrives,
+// which needs no JS and leaves the loaded pixels identical to the Next build.
+// The opacity fade is the one thing genuinely dropped: it cannot be driven
+// without JS, and a slide that stays invisible until React runs would break the
+// prerender-and-toggle model outright.
+//
+// Phase 5 turned this from a React component into an Astro one. It never
+// hydrated either way — the change is that nothing here goes through the React
+// renderer any more.
+
+import type { SlideImageSource } from "@/lib/types"
+
+interface Props {
+  image: SlideImageSource
+  alt: string
+  /**
+   * Emitted as the `width`/`height` attributes, which is what gives the box its
+   * aspect ratio under `w-full h-auto`. They deliberately describe the *frame*
+   * rather than the file — 1600x900 against a 3:2 source — exactly as the Next
+   * build did, with `object-cover` doing the cropping in CSS either way.
+   * Ignored when `fill` is set.
+   */
+  width?: number
+  height?: number
+  /** Fill the nearest positioned ancestor instead of using width/height. */
+  fill?: boolean
+  sizes?: string
+  /** Eager + high fetch priority. Only the first slide sets this. */
+  priority?: boolean
+  /** CSS `object-position`, for pictures cropped by `object-cover`. */
+  position?: string
+  class?: string
+}
+
+const {
+  image,
+  alt,
+  width = 1600,
+  height = 900,
+  fill = false,
+  sizes,
+  priority = false,
+  position,
+  class: className = "",
+} = Astro.props
+
+const loading = priority ? "eager" : "lazy"
+const fetchpriority = priority ? "high" : undefined
+const style = position ? `object-position:${position}` : undefined
+
+// The two circles of the spinner, offset half a cycle apart.
+const pulses = [0, -0.5]
+
+// decoding="sync", not the more usual "async". A slide's picture *is* the
+// slide, so it should appear together with the chrome drawn over it rather
+// than a frame or two later. Async decoding leaves a real gap — measured at
+// up to ~90ms after the image reports `complete` — during which the deck
+// paints the headline and dock over an empty backdrop.
+
+// Layering, without any z-index: the spinner comes first in the DOM and the
+// image second, and two positioned boxes at `z-auto` paint in source order.
+// The image only needs `relative` in the non-fill case, where it would
+// otherwise be in-flow — and in-flow content always paints below a positioned
+// sibling, so an unpositioned image would end up behind its own spinner.
+//
+// A real z-index here would be worse than useless: it would outrank the
+// z-[2] headline that TitleSlide and AnimalSlide paint over the picture, and
+// hide the title behind it.
+---
+
+<div class={fill ? "absolute inset-0" : "relative w-full flex items-center justify-center"}>
+  <div class="absolute inset-0 flex items-center justify-center bg-neutral-50" aria-hidden="true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+      class="h-12 w-12 text-neutral-500"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      {
+        pulses.map((begin) => (
+          <circle cx="50" cy="50" r="0">
+            <animate
+              attributeName="r"
+              repeatCount="indefinite"
+              dur="1s"
+              values="0;40"
+              keyTimes="0;1"
+              keySplines="0.2 0 0.8 1"
+              calcMode="spline"
+              begin={`${begin}s`}
+            />
+            <animate
+              attributeName="opacity"
+              repeatCount="indefinite"
+              dur="1s"
+              values="1;0"
+              keyTimes="0;1"
+              keySplines="0.2 0 0.8 1"
+              calcMode="spline"
+              begin={`${begin}s`}
+            />
+          </circle>
+        ))
+      }
+    </svg>
+  </div>
+
+  {
+    fill ? (
+      <img
+        src={image.src}
+        srcset={image.srcSet}
+        sizes={sizes ?? "100vw"}
+        alt={alt}
+        loading={loading}
+        fetchpriority={fetchpriority}
+        decoding="sync"
+        style={style}
+        class={`absolute inset-0 h-full w-full ${className}`}
+      />
+    ) : (
+      <img
+        src={image.src}
+        srcset={image.srcSet}
+        sizes={sizes}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={loading}
+        fetchpriority={fetchpriority}
+        decoding="sync"
+        style={style}
+        class={`relative ${className}`}
+      />
+    )
+  }
+</div>
