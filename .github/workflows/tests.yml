@@ -20,7 +20,7 @@ jobs:
       ART_REPO_URL: ${{ secrets.ART_REPO_TOKEN != '' && vars.ART_REPO_URL || '' }}
       ART_REPO_TOKEN: ${{ secrets.ART_REPO_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Version comes from `packageManager` in package.json.
       - uses: pnpm/action-setup@v4
