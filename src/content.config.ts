@@ -13,7 +13,8 @@
 
 import fs from "node:fs"
 import path from "node:path"
-import { defineCollection, z } from "astro:content"
+import { defineCollection } from "astro:content"
+import { z } from "astro/zod"
 import { parse as parseJsonc, printParseErrorCode } from "jsonc-parser"
 import type { Loader } from "astro/loaders"
 
