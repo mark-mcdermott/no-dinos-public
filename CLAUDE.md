@@ -25,7 +25,7 @@ time (see "Art" below), so a clone with no access builds with placeholders.
 Astro 5 (static output, no adapter) · Tailwind 4 · TypeScript · React 19, used
 sparingly.
 
-Node 25 · pnpm 12.3.4 (pinned via `packageManager` — keep it that way).
+Node 25 · pnpm 10.28.2 (pinned via `packageManager` — keep it that way).
 
 How it actually fits together:
 
@@ -138,6 +138,10 @@ an unfilled placeholder rather than a score.
 
 Live, and still able to bite:
 
+- **pnpm is pinned to 10.28.2 to match the rest of the projects** (it was briefly
+  12.3.4). Don't bump `packageManager` casually: pnpm 12 writes a second YAML
+  document into `pnpm-lock.yaml` (it pins pnpm itself), and 10.x refuses it with
+  `ERR_PNPM_BROKEN_LOCKFILE`. Going back up means regenerating the lockfile.
 - **The art is fetched, not committed.** Production fails closed on purpose (see
   "Art"); don't add a fallback that lets it build with placeholders.
 - **Never put slide art in `public/`.** It belongs in `src/assets/images/` so
