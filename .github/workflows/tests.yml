@@ -69,7 +69,7 @@ jobs:
             echo "::warning title=Visual diff::This branch renders differently from production — see the visual-diffs artifact."
           fi
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: github.event_name == 'pull_request' && steps.visual.outcome == 'failure'
         with:
           name: visual-diffs
