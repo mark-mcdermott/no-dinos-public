@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@astrojs/react':
         specifier: ^4
-        version: 4.4.2(@types/node@20.19.43)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(jiti@2.7.0)(lightningcss@1.33.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(yaml@2.9.0)
+        version: 4.4.2(@types/node@26.6.3)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(jiti@2.7.0)(lightningcss@1.33.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(yaml@2.9.0)
       astro:
         specifier: ^7
-        version: 7.3.5(@types/node@20.19.43)(jiti@2.7.0)(yaml@2.9.0)
+        version: 7.3.5(@types/node@26.6.3)(jiti@2.7.0)(yaml@2.9.0)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -31,7 +31,7 @@ importers:
         version: 19.3.0(react@19.3.0)
       sharp:
         specifier: ^0.35.5
-        version: 0.35.5(@types/node@20.19.43)
+        version: 0.35.5(@types/node@26.6.3)
       tailwind-merge:
         specifier: ^3.7.0
         version: 3.7.0
@@ -47,10 +47,10 @@ importers:
         version: 1.63.0
       '@tailwindcss/vite':
         specifier: 4.1.13
-        version: 4.1.13(vite@6.4.3(@types/node@20.19.43)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0))
+        version: 4.1.13(vite@6.4.3(@types/node@26.6.3)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0))
       '@types/node':
-        specifier: ^20
-        version: 20.19.43
+        specifier: ^26
+        version: 26.6.3
       '@types/pixelmatch':
         specifier: ^5.2.6
         version: 5.2.6
@@ -89,7 +89,7 @@ importers:
         version: 8.71.0(eslint@9.39.5(jiti@2.7.0))(typescript@5.9.3)
       vite:
         specifier: ^6
-        version: 6.4.3(@types/node@20.19.43)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0)
+        version: 6.4.3(@types/node@26.6.3)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0)
 
 packages:
 
@@ -1456,8 +1456,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@20.19.43':
-    resolution: {integrity: sha512-6oYBAi5ikg4Pl+kGsoYtawUMBT2zZMCvPNF7pVLnHZfd1zf38DRiWn/gT01RYCdUqkv7Fhr+C9ot4/tb+2sVvA==}
+  '@types/node@26.6.3':
+    resolution: {integrity: sha512-dsqMQQoeTLqu9wynDD00q573mNzso3IdQOAfHRJqLCcmCFPoGo9A1bDpUcv/9tnKpErQWv9uKeGfl37EIS02Yg==}
 
   '@types/pixelmatch@5.2.6':
     resolution: {integrity: sha512-wC83uexE5KGuUODn6zkm9gMzTwdY5L0chiK+VrKcDfEjzxh1uadlWTvOmAbCpnM9zx/Ww3f8uKlYQVnO/TrqVg==}
@@ -2782,8 +2782,8 @@ packages:
   uncrypto@0.1.3:
     resolution: {integrity: sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==}
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+  undici-types@8.9.0:
+    resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
   undici@8.11.2:
     resolution: {integrity: sha512-u4UB2/IrKdU6lFxumHmmo1a3fCQO5tzQllRorfoRS63txhrB7xTpSn1PftwC4qEHkOaqP95fCWW4lJzwErwzhQ==}
@@ -3321,15 +3321,15 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/react@4.4.2(@types/node@20.19.43)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(jiti@2.7.0)(lightningcss@1.33.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(yaml@2.9.0)':
+  '@astrojs/react@4.4.2(@types/node@26.6.3)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(jiti@2.7.0)(lightningcss@1.33.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(yaml@2.9.0)':
     dependencies:
       '@types/react': 19.3.0
       '@types/react-dom': 19.3.0(@types/react@19.3.0)
-      '@vitejs/plugin-react': 4.7.0(vite@6.4.3(@types/node@20.19.43)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0))
+      '@vitejs/plugin-react': 4.7.0(vite@6.4.3(@types/node@26.6.3)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0))
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
       ultrahtml: 1.7.0
-      vite: 6.4.3(@types/node@20.19.43)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0)
+      vite: 6.4.3(@types/node@26.6.3)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -4175,12 +4175,12 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.1.13
       '@tailwindcss/oxide-win32-x64-msvc': 4.1.13
 
-  '@tailwindcss/vite@4.1.13(vite@6.4.3(@types/node@20.19.43)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0))':
+  '@tailwindcss/vite@4.1.13(vite@6.4.3(@types/node@26.6.3)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0))':
     dependencies:
       '@tailwindcss/node': 4.1.13
       '@tailwindcss/oxide': 4.1.13
       tailwindcss: 4.1.13
-      vite: 6.4.3(@types/node@20.19.43)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0)
+      vite: 6.4.3(@types/node@26.6.3)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0)
 
   '@tybys/wasm-util@0.10.4':
     dependencies:
@@ -4230,17 +4230,17 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/node@20.19.43':
+  '@types/node@26.6.3':
     dependencies:
-      undici-types: 6.21.0
+      undici-types: 8.9.0
 
   '@types/pixelmatch@5.2.6':
     dependencies:
-      '@types/node': 20.19.43
+      '@types/node': 26.6.3
 
   '@types/pngjs@6.0.5':
     dependencies:
-      '@types/node': 20.19.43
+      '@types/node': 26.6.3
 
   '@types/react-dom@19.3.0(@types/react@19.3.0)':
     dependencies:
@@ -4357,7 +4357,7 @@ snapshots:
 
   '@ungap/structured-clone@1.4.0': {}
 
-  '@vitejs/plugin-react@4.7.0(vite@6.4.3(@types/node@20.19.43)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0))':
+  '@vitejs/plugin-react@4.7.0(vite@6.4.3(@types/node@26.6.3)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0))':
     dependencies:
       '@babel/core': 7.29.7
       '@babel/plugin-transform-react-jsx-self': 7.29.7(@babel/core@7.29.7)
@@ -4365,7 +4365,7 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.27
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 6.4.3(@types/node@20.19.43)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0)
+      vite: 6.4.3(@types/node@26.6.3)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -4484,7 +4484,7 @@ snapshots:
       - '@emnapi/runtime'
       - supports-color
 
-  astro@7.3.5(@types/node@20.19.43)(jiti@2.7.0)(yaml@2.9.0):
+  astro@7.3.5(@types/node@26.6.3)(jiti@2.7.0)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler-rs': 0.5.1
       '@astrojs/internal-helpers': 0.11.0
@@ -4534,13 +4534,13 @@ snapshots:
       unifont: 0.7.5
       unstorage: 1.17.5
       verkit: 0.4.1
-      vite: 8.3.2(@types/node@20.19.43)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
-      vitefu: 1.1.3(vite@8.3.2(@types/node@20.19.43)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
+      vite: 8.3.2(@types/node@26.6.3)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
+      vitefu: 1.1.3(vite@8.3.2(@types/node@26.6.3)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
       xxhash-wasm: 1.1.0
       yargs-parser: 22.0.0
       zod: 4.6.5
     optionalDependencies:
-      sharp: 0.35.5(@types/node@20.19.43)
+      sharp: 0.35.5(@types/node@26.6.3)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -5516,7 +5516,7 @@ snapshots:
 
   semver@7.8.5: {}
 
-  sharp@0.35.5(@types/node@20.19.43):
+  sharp@0.35.5(@types/node@26.6.3):
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
@@ -5547,7 +5547,7 @@ snapshots:
       '@img/sharp-win32-arm64': 0.35.5
       '@img/sharp-win32-ia32': 0.35.5
       '@img/sharp-win32-x64': 0.35.5
-      '@types/node': 20.19.43
+      '@types/node': 26.6.3
 
   shebang-command@2.0.0:
     dependencies:
@@ -5685,7 +5685,7 @@ snapshots:
 
   uncrypto@0.1.3: {}
 
-  undici-types@6.21.0: {}
+  undici-types@8.9.0: {}
 
   undici@8.11.2: {}
 
@@ -5763,7 +5763,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@6.4.3(@types/node@20.19.43)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0):
+  vite@6.4.3(@types/node@26.6.3)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.7)
@@ -5772,13 +5772,13 @@ snapshots:
       rollup: 4.63.1
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 20.19.43
+      '@types/node': 26.6.3
       fsevents: 2.3.3
       jiti: 2.7.0
       lightningcss: 1.33.0
       yaml: 2.9.0
 
-  vite@8.3.2(@types/node@20.19.43)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0):
+  vite@8.3.2(@types/node@26.6.3)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
@@ -5786,15 +5786,15 @@ snapshots:
       rolldown: 1.2.12
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 20.19.43
+      '@types/node': 26.6.3
       esbuild: 0.28.2
       fsevents: 2.3.3
       jiti: 2.7.0
       yaml: 2.9.0
 
-  vitefu@1.1.3(vite@8.3.2(@types/node@20.19.43)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)):
+  vitefu@1.1.3(vite@8.3.2(@types/node@26.6.3)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)):
     optionalDependencies:
-      vite: 8.3.2(@types/node@20.19.43)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
+      vite: 8.3.2(@types/node@26.6.3)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
 
   volar-service-css@0.0.71(@volar/language-service@2.4.28):
     dependencies:
