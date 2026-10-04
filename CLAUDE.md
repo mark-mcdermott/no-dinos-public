@@ -22,7 +22,7 @@ time (see "Art" below), so a clone with no access builds with placeholders.
 
 ## Stack
 
-Astro 5 (static output, no adapter) · Tailwind 4 · TypeScript · React 19, used
+Astro 7 (static output, no adapter) · Tailwind 4 · TypeScript · React 19, used
 sparingly.
 
 Node 25 · pnpm 10.28.2 (pinned via `packageManager` — keep it that way).
@@ -162,7 +162,11 @@ Live, and still able to bite:
   assets nothing in the emitted HTML/CSS/JS references and takes the output
   from ~180 MB to ~20 MB. It is a workaround for an upstream quirk, not a
   diagnosis; see the measurement table under Phase 3 of the rewrite plan
-  before changing it, and re-test it on a newer astro.
+  before changing it, and re-test it on a newer astro. Last re-tested on
+  Astro 7.3.5: the quirk is unchanged (60 of 234 assets pruned, 158.4 MB freed).
+- **`astro preview` detaches when it detects an AI agent** (Astro 7). Playwright
+  reads the early exit as a dead server, so the `webServer` command passes
+  `--ignore-lock`, which keeps it in the foreground. Don't drop the flag.
 - **A `hidden` attribute loses to a Tailwind display class.** The deck hides
   slides with `<section hidden>`, so that element must never carry `flex` or
   `grid` — every slide would render at once. It is avoided structurally today:
