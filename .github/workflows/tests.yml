@@ -36,7 +36,7 @@ jobs:
 
       # astro:assets keeps its WebP derivatives here; restoring them skips
       # re-encoding ~170 MB of source art on every run.
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: node_modules/.astro
           key: astro-assets-${{ hashFiles('src/assets/images/**', 'pnpm-lock.yaml') }}
