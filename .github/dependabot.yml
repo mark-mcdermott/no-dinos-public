@@ -13,6 +13,13 @@ updates:
       # glyph on the deck. Bump by hand, with the visual suite, if ever.
       - dependency-name: tailwindcss
       - dependency-name: "@tailwindcss/vite"
+      # The root vite only anchors the pinned Tailwind plugin's peer range;
+      # Astro brings its own. A major here drags the plugin past its pin.
+      - dependency-name: vite
+        update-types: ["version-update:semver-major"]
+      # 1.x redraws the zap, school and leaf sidebar icons. Bump by hand.
+      - dependency-name: lucide-react
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /
