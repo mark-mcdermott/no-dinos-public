@@ -41,7 +41,7 @@
     "pngjs": "^7.0.0",
     "tailwindcss": "4.1.13",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5",
+    "typescript": "^6",
     "typescript-eslint": "^8.71.0",
     "vite": "^6"
   },
