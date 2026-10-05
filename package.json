@@ -15,7 +15,7 @@
     "test:visual:sample": "VISUAL_SLIDES=sample playwright test --project=visual"
   },
   "dependencies": {
-    "@astrojs/react": "^4",
+    "@astrojs/react": "^7",
     "astro": "^7",
     "clsx": "^2.1.1",
     "jsonc-parser": "^3.3.1",
