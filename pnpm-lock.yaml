@@ -51,9 +51,6 @@ importers:
       '@types/node':
         specifier: ^26
         version: 26.6.3
-      '@types/pixelmatch':
-        specifier: ^5.2.6
-        version: 5.2.6
       '@types/pngjs':
         specifier: ^6.0.5
         version: 6.0.5
@@ -1465,9 +1462,6 @@ packages:
 
   '@types/node@26.6.3':
     resolution: {integrity: sha512-dsqMQQoeTLqu9wynDD00q573mNzso3IdQOAfHRJqLCcmCFPoGo9A1bDpUcv/9tnKpErQWv9uKeGfl37EIS02Yg==}
-
-  '@types/pixelmatch@5.2.6':
-    resolution: {integrity: sha512-wC83uexE5KGuUODn6zkm9gMzTwdY5L0chiK+VrKcDfEjzxh1uadlWTvOmAbCpnM9zx/Ww3f8uKlYQVnO/TrqVg==}
 
   '@types/pngjs@6.0.5':
     resolution: {integrity: sha512-0k5eKfrA83JOZPppLtS2C7OUtyNAl2wKNxfyYl9Q5g9lPkgBl/9hNyAu6HuEH2J4XmIv2znEpkDd0SaZVxW6iQ==}
@@ -4181,10 +4175,6 @@ snapshots:
   '@types/node@26.6.3':
     dependencies:
       undici-types: 8.9.0
-
-  '@types/pixelmatch@5.2.6':
-    dependencies:
-      '@types/node': 26.6.3
 
   '@types/pngjs@6.0.5':
     dependencies:
