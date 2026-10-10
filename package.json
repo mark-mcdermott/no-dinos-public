@@ -41,7 +41,7 @@
     "tailwindcss": "4.1.13",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^6",
-    "typescript-eslint": "^8.71.0",
+    "typescript-eslint": "^8.71.1",
     "vite": "^6"
   },
   "packageManager": "pnpm@10.28.2"
